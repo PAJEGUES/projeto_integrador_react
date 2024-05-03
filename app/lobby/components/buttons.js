@@ -1,13 +1,24 @@
-import "../style.css"; 
+'use client'
+import { useRouter } from 'next/navigation'
+import "../style.css";
 
 export default function Buttons(){
+    
+    const routerExit = useRouter()
+    const routerOverview = useRouter()
+    const routerLocation = useRouter()
+    const routerRegister = useRouter()
+    const routerPayments = useRouter()
+
     return(
-        <div>
-            <button className="btnPagamentos"> Pagamentos </button>
-            <button className="btnCadastro"> Cadastro </button>
-            <button className="btnLocalizacao"> Localização </button>
-            <button className="btnVisaoGeral"> Visão Geral </button>
-            <button className="btnSair"> Sair </button>
+        <div className="button-container">
+            <button className="btnPayments" onClick={()=> routerPayments.push ('/lobby/payment')}> Pagamentos </button>
+            <button className="btnRegister" onClick={()=> routerRegister.push ('/lobby/register')}> Cadastro </button>
+            <button className="btnLocation" onClick={()=> routerLocation.push ('/lobby/maps')}> Localização </button>
+            <button className="btnOverview" onClick={()=> routerOverview.push ('/lobby/overview')}> Visão Geral </button>
+            <button className="btnExit" onClick={()=> routerExit.push ('/login')}> Sair </button>
         </div>
     )
 }
+
+

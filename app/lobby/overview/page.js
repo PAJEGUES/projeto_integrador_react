@@ -1,5 +1,14 @@
+'use client'
+import { useRouter } from 'next/navigation'
+
 export default function Overview(){
+
+    const routerBack = useRouter();
+
     return(
-        <div></div>
+        <div>
+            <h1>Visao Geral - José</h1>
+            <button className="btnBack" onClick={()=> routerBack.push('/lobby')}> Voltar </button>
+        </div>
     )
 }
