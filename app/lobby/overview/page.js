@@ -7,7 +7,7 @@ export default function Overview(){
 
     return(
         <div>
-            <h1>Visao Geral - José</h1>
+            <h1>Visao Geral - Alef</h1>
             <button className="btnBack" onClick={()=> routerBack.push('/lobby')}> Voltar </button>
         </div>
     )

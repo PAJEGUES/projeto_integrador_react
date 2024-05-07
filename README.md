@@ -12,9 +12,9 @@ Projeto integrador web, UC 15.
 
 ## Divisão de tarefas
 
-- _José_:  Visão Geral + Botão Sair + Lobby
+- _José_:  Cadastrar + Lobby
 - _Alef_: Mapa
-- _Ailson_: Pessoas devendo pagamento + 
+- _Ailson_: Visão Geral
 - _Vinicius_: Marketing
 - _Rogério_: Login
 
