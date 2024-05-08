@@ -1,0 +1,15 @@
+button {
+    border-radius: 100px;
+    background-color: rgb(0,134,163);
+    color: white;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  

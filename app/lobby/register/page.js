@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import RegistrationData from './components/registration_data';
 
 export default function Register(){
 
@@ -8,7 +9,12 @@ export default function Register(){
     return(
         <div>
             <h1>Registro - José</h1>
-            <button className="btnBack" onClick={()=> routerBack.push('/lobby')}> Voltar </button>
+            <RegistrationData/>
+            <div className='button-container'>
+                <button onClick={()=> routerBack.push('/lobby')}> Voltar </button>
+                <button onClick={()=> routerBack.push('/')}> Limpar </button>
+                <button onClick={()=> routerBack.push('/')}> Cadastrar </button>
+            </div>
         </div>
     )
 }
