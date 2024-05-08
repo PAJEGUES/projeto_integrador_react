@@ -1,10 +1,14 @@
-import Link from "next/link";
+'use client'
+import { useRouter } from 'next/navigation'
 
-export default function Home() {
-  return (
-    <div>
-      <h1>Projeto Integrador</h1>
-      <Link href="/login"> Login </Link>
-    </div>
-  );
+export default function Marketing(){
+
+    const routerLogin = useRouter();
+
+    return(
+        <div>
+            <h1>Marketing - Vinicius</h1>
+            <button className="btnLogin" onClick={()=> routerLogin.push('/login')}> Entrar </button>
+        </div>
+    )
 }
