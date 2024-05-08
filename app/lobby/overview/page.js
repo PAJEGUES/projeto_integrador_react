@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import "./overview.css"
 
 export default function Overview(){
 
@@ -19,154 +20,66 @@ export default function Overview(){
             <input type="number" placeholder="Dia do pagamento"/>
             <select name="status do pagamento">
                 <option value="">Status do pagamento</option>
-                <option value="pago" style="background: green;">Pago</option>
-                <option value="não_pago" style="background: red;">Não Pago</option>
+                <option value="pago">Pago</option>
+                <option value="não_pago">Não Pago</option>
             </select>
             <button>Confirmar</button>
             
             
-            <table border="true">
-                    <tr>
-                        <th>Ailson Pereira de Lima</th>
-                    </tr>
-                    <tr>
-                        <th>Rua</th>
-                        <td>José Hildebrand</td>
-                    </tr>
-                    <tr>
-                        <th>N°</th>
-                        <td>1068</td>
-                    </tr>
-                    <tr>
-                        <th>Bairro</th>
-                        <td>Itamaraty</td>
-                    </tr>
-                    <tr>
-                        <th>Telefone</th>
-                        <td>(16) 98165-3678</td>
-                    </tr>
-                    <tr>
-                        <th>Valor do pagamento</th>
-                        <td>R$20</td>
-                    </tr>
-                    <tr>
-                        <th>Dia do pagamento</th>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th>Forma do pagamento</th>
-                        <td>Pix</td>
-                    </tr>
-                    <tr>
-                        <th>Confirmar pagamento</th>
-                        <td><input type="checkbox" /></td>
-                    </tr>
-                    <tr>
-                    
-                        <td colspan="2"><button>Enviar comprovante</button></td>
-                    </tr>
-                    <tr>
-                        
-                        <td colspan="2"><button>Imprimir comprovante</button></td>
-                    </tr>
-                    
+            <table className='card' border="true">
+                <tr>
+                    <td colSpan={2}>Ailson Pereira de Lima</td>
+                </tr>
                 
-            </table>
-            <table border="true">
                 <tr>
-                    <th>Leandro da Silva </th>
-                    
+                    <td colSpan={2}>R: José Hildebrand</td>
                 </tr>
+                
                 <tr>
-                    <th>Rua</th>
-                    <td>José Hildebrand</td>
+                <th>N°</th>
+                <td>1068</td>
                 </tr>
-                <tr>
-                    <th>N°</th>
-                    <td>1068</td>
-                </tr>
+                
                 <tr>
                     <th>Bairro</th>
                     <td>Itamaraty</td>
                 </tr>
+                
                 <tr>
                     <th>Telefone</th>
                     <td>(16) 98165-3678</td>
                 </tr>
+                
                 <tr>
                     <th>Valor do pagamento</th>
                     <td>R$20</td>
                 </tr>
+                
                 <tr>
                     <th>Dia do pagamento</th>
                     <td>10</td>
                 </tr>
+                
                 <tr>
                     <th>Forma do pagamento</th>
                     <td>Pix</td>
                 </tr>
+                
                 <tr>
                     <th>Confirmar pagamento</th>
                     <td><input type="checkbox" /></td>
                 </tr>
-                <tr>
                 
+                <tr>
                     <td colspan="2"><button>Enviar comprovante</button></td>
                 </tr>
-                <tr>
-                    
+                
+                <tr>   
                     <td colspan="2"><button>Imprimir comprovante</button></td>
                 </tr>
-                
-            
             </table>
-            <table border="true">
-            <tr>
-                <th>Italo Oliveira Filho</th>
-                
-            </tr>
-            <tr>
-                <th>Rua</th>
-                <td>José Hildebrand</td>
-            </tr>
-            <tr>
-                <th>N°</th>
-                <td>1068</td>
-            </tr>
-            <tr>
-                <th>Bairro</th>
-                <td>Itamaraty</td>
-            </tr>
-            <tr>
-                <th>Telefone</th>
-                <td>(16) 98165-3678</td>
-            </tr>
-            <tr>
-                <th>Valor do pagamento</th>
-                <td>R$20</td>
-            </tr>
-            <tr>
-                <th>Dia do pagamento</th>
-                <td>10</td>
-            </tr>
-            <tr>
-                <th>Forma do pagamento</th>
-                <td>Pix</td>
-            </tr>
-            <tr>
-                <th>Confirmar pagamento</th>
-                <td><input type="checkbox" /></td>
-            </tr>
-            <tr>
+
             
-                <td colspan="2"><button>Enviar comprovante</button></td>
-            </tr>
-            <tr>
-                
-                <td colspan="2"><button>Imprimir comprovante</button></td>
-            </tr>
-            
-            </table>
 
         </div>
     )
