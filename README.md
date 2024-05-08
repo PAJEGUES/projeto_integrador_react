@@ -18,4 +18,6 @@ Projeto integrador web, UC 15.
 - _Vinicius_: Marketing
 - _Rogério_: Login
 
+-_Cadastrar Clientes (Campos Necessários)_: Nome + Rua + Número Casa + Telefone + Bairro + Cidade + Valor Pagamento + Dia Pagamento + Forma Pagamento 
+
 ![telas-sistema](./public/telas-sistema.png)
