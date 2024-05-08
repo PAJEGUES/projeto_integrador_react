@@ -3,8 +3,7 @@
 export default function RegistrationData(){
 
     return(
-        <div>
-            <p> Cadastro de Cliente</p>
+        <div className="label-container">
             <br/>
 
             <label> Nome </label>
@@ -68,15 +67,12 @@ export default function RegistrationData(){
             <br/>
             <br/>
 
-
             <label> Valor do Pagamento </label>
             <br/>
             <input className="inputName" type="number"/>
 
             <br/>
             <br/>
-
-
         </div>
     )
 

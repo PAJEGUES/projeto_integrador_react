@@ -1,14 +1,15 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import RegistrationData from './components/registration_data';
+import "./style.css";
 
 export default function Register(){
 
     const routerBack = useRouter();
 
     return(
-        <div>
-            <h1>Registro - José</h1>
+        <div className='label-container'>
+            <h1>Cadastro de Clientes</h1>
             <RegistrationData/>
             <div className='button-container'>
                 <button onClick={()=> routerBack.push('/lobby')}> Voltar </button>
