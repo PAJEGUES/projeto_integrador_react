@@ -13,8 +13,6 @@ export default function Register(){
             <RegistrationData/>
             <div className='button-container'>
                 <button onClick={()=> routerBack.push('/lobby')}> Voltar </button>
-                <button onClick={()=> routerBack.push('/')}> Limpar </button>
-                <button onClick={()=> routerBack.push('/')}> Cadastrar </button>
             </div>
         </div>
     )
