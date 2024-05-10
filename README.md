@@ -12,10 +12,12 @@ Projeto integrador web, UC 15.
 
 ## Divisão de tarefas
 
-- _José_:  Visão Geral + Botão Sair + Lobby
+- _José_:  Cadastrar + Lobby
 - _Alef_: Mapa
-- _Ailson_: Pessoas devendo pagamento + 
+- _Ailson_: Visão Geral
 - _Vinicius_: Marketing
 - _Rogério_: Login
+
+-_Cadastrar Clientes (Campos Necessários)_: Nome + Rua + Número Casa + Telefone + Bairro + Cidade + Valor Pagamento + Dia Pagamento + Forma Pagamento 
 
 ![telas-sistema](./public/telas-sistema.png)
