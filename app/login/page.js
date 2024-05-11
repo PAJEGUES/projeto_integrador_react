@@ -11,6 +11,7 @@ return(
     <div class="main-login">
         <div class="left-login">
             <h1>Faça Login<br/>E entre para o nosso time de SEGURANÇA</h1>
+            <img src="security-on-animate.svg" class="left-login-image" alt="night guard animação"></img>
         </div>
         <div class="right-login">
             <div class="card-login">
