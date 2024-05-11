@@ -1,82 +1,105 @@
 'use client'
 
+import { useState } from "react";
+
 export default function RegistrationData(){
 
+    const [inputName, alteraInputName] = useState("");
+    const [inputAdress, alteraInputAdress] = useState("");
+    const [inputNumberHouse, alteraInputNumberHouse] = useState("");
+    const [inputTelephone, alteraInputTelephone] = useState("");
+    const [inputNeighborhood, alteraInputNeighborhood] = useState("");
+    const [inputFormPayment, alteraInputFormPayment] = useState("");
+    const [inputDayPayment, alteraInputDayPayment] = useState("");
+    const [inputValuePayment, alteraInputValuePayment] = useState("");
+
+    function sendFormulary(e){
+        e.preventDefault();
+    }
+
+    function clearValues(){
+        
+    }
+
     return(
-        <div>
-            <p> Cadastro de Cliente</p>
-            <br/>
+        <div className="label-container">
+            <form onSubmit={(e)=> sendFormulary(e)}>
+                <br/>
+                <label> Nome </label>
+                <br/>
+                <input onChange={ (e)=> alteraInputName(e.target.value)} className="inputName" type="text"/>
 
-            <label> Nome </label>
-            <br/>
-            <input className="inputName" type="text"/>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label> Endereço </label>
+                <br/>
+                <input onChange= {(e)=> alteraInputAdress(e.target.value)} className="inputAdress" type="text"/>
 
-            <label> Endereço </label>
-            <br/>
-            <input className="inputAdress" type="text"/>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label> Número Casa</label>
+                <br/>
+                <input onChange= {(e)=> alteraInputNumberHouse(e.target.value)} className="inputNumberHouse" type="number"/>
 
-            <label> Número Casa</label>
-            <br/>
-            <input className="inputName" type="number"/>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label> Telefone </label>
+                <br/>
+                <input onChange= {(e)=> alteraInputTelephone(e.target.value)} className="inputTelephone" type="number"/>
 
-            <label> Telefone </label>
-            <br/>
-            <input className="inputName" type="number"/>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label> Bairro </label>
+                <br/>
+                <input onChange= {(e)=> alteraInputNeighborhood(e.target.value)} className="inputNeighborhood" type="text"/>
 
-            <label> Bairro </label>
-            <br/>
-            <input className="inputName" type="text"/>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label> Forma Pagamento </label>
+                <br/>
+                <select onChange={(e) => alteraInputFormPayment(e.target.value)}>
+                    <option value="pix"> PIX </option>
+                    <option value="debito"> DEBITO </option>
+                    <option value="credito"> CREDITO </option>
+                    <option value="dinheiro"> DINHEIRO </option>
+                </select>
 
-            <label> Forma Pagamento </label>
-            <br/>
-            <select>
-                <option value="pix"> PIX </option>
-                <option value="debito"> DEBITO </option>
-                <option value="credito"> CREDITO </option>
-                <option value="dinheiro"> DINHEIRO </option>
-            </select>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label onChange={(e)=> alteraInputDayPayment(e.target.value)}> Dia do Pagamento </label>
+                <br/>
+                <select>
+                    <option value="5"> 5 </option>
+                    <option value="10"> 10 </option>
+                    <option value="15"> 15 </option>
+                    <option value="20"> 20 </option>
+                    <option value="25"> 25 </option>
+                    <option value="30"> 30 </option>
+                </select>
 
-            <label> Dia do Pagamento </label>
-            <br/>
-            <select>
-                <option value="5"> 5 </option>
-                <option value="10"> 10 </option>
-                <option value="15"> 15 </option>
-                <option value="20"> 20 </option>
-                <option value="25"> 25 </option>
-                <option value="30"> 30 </option>
-            </select>
+                <br/>
+                <br/>
 
-            <br/>
-            <br/>
+                <label> Valor do Pagamento </label>
+                <br/>
+                <input onChange= {(e)=> alteraInputValuePayment(e.target.value)} className="valuePayment" type="number"/>
+                
+                <br/>
+                <br/>
 
+                <button style={{height: 30, position: "fixed", bottom: 65, left: 0}} type="submit"> Cadastrar </button>
+                <br/>
+                <br/>
 
-            <label> Valor do Pagamento </label>
-            <br/>
-            <input className="inputName" type="number"/>
-
-            <br/>
-            <br/>
-
-
+                <button style={{height: 30, position: "fixed", bottom: 32, left: 0}} type="reset"> Limpar </button>
+                
+            </form>
         </div>
     )
 

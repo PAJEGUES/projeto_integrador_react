@@ -1,0 +1,48 @@
+.card {
+    border-radius: 10px;
+    border-collapse: collapse;
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+
+
+ 
+}
+
+
+#filtro{
+
+    text-align: left;
+    margin: 5px;
+    
+}
+
+#botao_expandir{
+    display: flex;
+    justify-content: right;
+    width: 30px;
+    
+}
+
+.input-name{
+    margin-top: 20px;
+    width:100%;
+    
+}
+
+.rua{
+    width: 100%;
+}
+
+.bairro{
+    width: 100%;
+}
+
+.dia-pagamento{
+    width: 100%;
+}
+
+.status-pagamento{
+    width: 100%;
+}
