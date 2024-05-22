@@ -1,11 +1,12 @@
 'use client'
 
+import axios from 'axios';
 import { useState } from "react";
 
 export default function RegistrationData(){
 
     const [inputName, alteraInputName] = useState("");
-    const [inputAdress, alteraInputAdress] = useState("");
+    const [inputAddress, alteraInputAdress] = useState("");
     const [inputNumberHouse, alteraInputNumberHouse] = useState("");
     const [inputTelephone, alteraInputTelephone] = useState("");
     const [inputNeighborhood, alteraInputNeighborhood] = useState("");
@@ -13,13 +14,46 @@ export default function RegistrationData(){
     const [inputDayPayment, alteraInputDayPayment] = useState("");
     const [inputValuePayment, alteraInputValuePayment] = useState("");
 
-    function sendFormulary(e){
+    function sendFormulary(e) {
         e.preventDefault();
+    
+        const formData = {
+            name: inputName,
+            address: inputAddress,
+            numberHouse: inputNumberHouse,
+            telephone: inputTelephone,
+            neighborhood: inputNeighborhood,
+            formPayment: inputFormPayment,
+            dayPayment: inputDayPayment,
+            valuePayment: inputValuePayment
+        };
+    
+        axios.post('http://10.60.46.36:5000/post_client', formData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.status === 200) {
+                alert("Cadastro realizado com sucesso!");
+                setInputName("");
+                setInputAddress("");
+                setInputNumberHouse("");
+                setInputTelephone("");
+                setInputNeighborhood("");
+                setInputFormPayment("");
+                setInputDayPayment("");
+                setInputValuePayment("");
+            } else {
+                alert("Ocorreu um erro ao cadastrar. Por favor, tente novamente.");
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao enviar formulário:', error);
+            alert("Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.");
+        });
     }
-
-    function clearValues(){
-        
-    }
+    
 
     return(
         <div className="label-container">
