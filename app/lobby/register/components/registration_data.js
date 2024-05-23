@@ -1,7 +1,7 @@
 'use client'
 
 import axios from 'axios';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function RegistrationData(){
 
@@ -20,12 +20,12 @@ export default function RegistrationData(){
         const formData = {
             name: inputName,
             address: inputAddress,
-            numberHouse: inputNumberHouse,
+            numberhouse: inputNumberHouse,
             telephone: inputTelephone,
             neighborhood: inputNeighborhood,
-            formPayment: inputFormPayment,
-            dayPayment: inputDayPayment,
-            valuePayment: inputValuePayment
+            formpayment: inputFormPayment,
+            daypayment: inputDayPayment,
+            valuepayment: inputValuePayment
         };
     
         axios.post('/api/post_client', formData, {
