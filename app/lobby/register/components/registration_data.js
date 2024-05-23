@@ -1,7 +1,7 @@
 'use client'
 
 import axios from 'axios';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function RegistrationData(){
 
@@ -28,7 +28,7 @@ export default function RegistrationData(){
             valuePayment: inputValuePayment
         };
     
-        axios.post('http://10.60.46.36:5000/post_client', formData, {
+        axios.post('/api/post_client', formData, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -54,7 +54,6 @@ export default function RegistrationData(){
         });
     }
     
-
     return(
         <div className="label-container">
             <form onSubmit={(e)=> sendFormulary(e)}>

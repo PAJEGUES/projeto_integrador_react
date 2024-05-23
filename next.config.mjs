@@ -1,5 +1,3 @@
-import { INTERCEPTION_ROUTE_REWRITE_MANIFEST } from 'next/dist/shared/lib/constants';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     async rewrites(){
