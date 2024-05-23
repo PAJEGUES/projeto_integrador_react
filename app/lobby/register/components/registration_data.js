@@ -60,35 +60,35 @@ export default function RegistrationData(){
                 <br/>
                 <label> Nome </label>
                 <br/>
-                <input onChange={ (e)=> alteraInputName(e.target.value)} className="inputName" type="text"/>
+                <input onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
 
                 <br/>
                 <br/>
 
                 <label> Endereço </label>
                 <br/>
-                <input onChange= {(e)=> alteraInputAdress(e.target.value)} className="inputAdress" type="text"/>
+                <input onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
 
                 <br/>
                 <br/>
 
                 <label> Número Casa</label>
                 <br/>
-                <input onChange= {(e)=> alteraInputNumberHouse(e.target.value)} className="inputNumberHouse" type="number"/>
+                <input onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number"/>
 
                 <br/>
                 <br/>
 
                 <label> Telefone </label>
                 <br/>
-                <input onChange= {(e)=> alteraInputTelephone(e.target.value)} className="inputTelephone" type="number"/>
+                <input onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number"/>
 
                 <br/>
                 <br/>
 
                 <label> Bairro </label>
                 <br/>
-                <input onChange= {(e)=> alteraInputNeighborhood(e.target.value)} className="inputNeighborhood" type="text"/>
+                <input onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
 
                 <br/>
                 <br/>
@@ -121,7 +121,7 @@ export default function RegistrationData(){
 
                 <label> Valor do Pagamento </label>
                 <br/>
-                <input onChange= {(e)=> alteraInputValuePayment(e.target.value)} className="valuePayment" type="number"/>
+                <input onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number"/>
                 
                 <br/>
                 <br/>
