@@ -1,5 +1,6 @@
 'use client'
 import axios from "axios"
+import { headers } from "next/headers";
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react';
 import "./overview.css"
@@ -17,9 +18,15 @@ export default function Overview(){
     const [clientes, alterarClientes] = useState ([]);
 
     function buscarClientes(){
-        // axios.get("http://10.60.46.36:5000/get_administrators").then(function(response){
-        //     alterarClientes(response.data)
-        // })
+        axios.get("/api/get_client",{
+            headers:{
+                'Content-type':'application/json'
+            }
+        })
+        .then(function(response){
+            console.log(response)
+             alterarClientes(response.data)
+        })
 
         alterarClientes([
             {
