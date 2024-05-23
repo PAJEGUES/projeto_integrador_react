@@ -10,8 +10,8 @@ export default function RegistrationData(){
     const [inputNumberHouse, alteraInputNumberHouse] = useState("");
     const [inputTelephone, alteraInputTelephone] = useState("");
     const [inputNeighborhood, alteraInputNeighborhood] = useState("");
-    const [inputFormPayment, alteraInputFormPayment] = useState("");
-    const [inputDayPayment, alteraInputDayPayment] = useState("");
+    const [inputFormPayment, alteraInputFormPayment] = useState("pix");
+    const [inputDayPayment, alteraInputDayPayment] = useState("5");
     const [inputValuePayment, alteraInputValuePayment] = useState("");
 
     function sendFormulary(e) {
@@ -20,21 +20,21 @@ export default function RegistrationData(){
         const formData = {
             name: inputName,
             address: inputAddress,
-            numberhouse: inputNumberHouse,
+            housenumber: inputNumberHouse,
             telephone: inputTelephone,
             neighborhood: inputNeighborhood,
-            formpayment: inputFormPayment,
-            daypayment: inputDayPayment,
-            valuepayment: inputValuePayment
+            formofpayment: inputFormPayment,
+            dateofpayment: inputDayPayment,
+            paymentamount: inputValuePayment
         };
-    
+
         axios.post('/api/post_client', formData, {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         .then(response => {
-            if (response.status === 200) {
+            if (response.status === 201) {
                 alert("Cadastro realizado com sucesso!");
                 setInputName("");
                 setInputAddress("");
@@ -95,7 +95,7 @@ export default function RegistrationData(){
 
                 <label> Forma Pagamento </label>
                 <br/>
-                <select onChange={(e) => alteraInputFormPayment(e.target.value)}>
+                <select onChange={(e) => alteraInputFormPayment(e.target.value)} value="pix">
                     <option value="pix"> PIX </option>
                     <option value="debito"> DEBITO </option>
                     <option value="credito"> CREDITO </option>
@@ -105,15 +105,15 @@ export default function RegistrationData(){
                 <br/>
                 <br/>
 
-                <label onChange={(e)=> alteraInputDayPayment(e.target.value)}> Dia do Pagamento </label>
+                <label> Dia do Pagamento </label>
                 <br/>
-                <select>
-                    <option value="5"> 5 </option>
-                    <option value="10"> 10 </option>
-                    <option value="15"> 15 </option>
-                    <option value="20"> 20 </option>
-                    <option value="25"> 25 </option>
-                    <option value="30"> 30 </option>
+                <select onChange={(e) => alteraInputDayPayment(e.target.value)} value='5'>
+                    <option value='5'> 5 </option>
+                    <option value='10'> 10 </option>
+                    <option value='15'> 15 </option>
+                    <option value='20'> 20 </option>
+                    <option value='25'> 25 </option>
+                    <option value='30'> 30 </option>
                 </select>
 
                 <br/>
