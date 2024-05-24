@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { useState } from "react";
+import { useRouter } from 'next/navigation'
 
 export default function RegistrationData(){
 
@@ -13,6 +14,8 @@ export default function RegistrationData(){
     const [inputFormPayment, alteraInputFormPayment] = useState("pix");
     const [inputDayPayment, alteraInputDayPayment] = useState("5");
     const [inputValuePayment, alteraInputValuePayment] = useState("");
+
+    const routerBack = useRouter();
 
     function sendFormulary(e) {
         e.preventDefault();
@@ -55,85 +58,53 @@ export default function RegistrationData(){
     }
     
     return(
-        <div className="label-container">
-            <form onSubmit={(e)=> sendFormulary(e)}>
-                <br/>
-                <label> Nome </label>
-                <br/>
-                <input onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
+        <div id="container">
+    <div id="form-container">
+        <h1 id="title">Cadastro de Clientes</h1>
+        <form id="form" onSubmit={(e)=> sendFormulary(e)}>
+            <label> Nome </label>
+            <input className="input-box" onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
 
-                <br/>
-                <br/>
+            <label> Endereço </label>
+            <input className="input-box" onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
 
-                <label> Endereço </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
+            <label> Número Casa</label>
+            <input className="input-box" onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number"/>
 
-                <br/>
-                <br/>
+            <label> Telefone </label>
+            <input className="input-box" onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number"/>
 
-                <label> Número Casa</label>
-                <br/>
-                <input onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number"/>
+            <label> Bairro </label>
+            <input className="input-box" onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
 
-                <br/>
-                <br/>
+            <label> Forma Pagamento </label>
+            <select className="input-box" onChange={(e) => alteraInputFormPayment(e.target.value)} value="pix">
+                <option value="pix"> PIX </option>
+                <option value="debito"> DEBITO </option>
+                <option value="credito"> CREDITO </option>
+                <option value="dinheiro"> DINHEIRO </option>
+            </select>
 
-                <label> Telefone </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number"/>
+            <label> Dia do Pagamento </label>
+            <select className="input-box" onChange={(e) => alteraInputDayPayment(e.target.value)} value='5'>
+                <option value='5'> 5 </option>
+                <option value='10'> 10 </option>
+                <option value='15'> 15 </option>
+                <option value='20'> 20 </option>
+                <option value='25'> 25 </option>
+                <option value='30'> 30 </option>
+            </select>
 
-                <br/>
-                <br/>
+            <label> Valor do Pagamento </label>
+            <input className="input-box" onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number"/>
+            
+            <button type="submit"> Cadastrar </button>
+            <button type="reset"> Limpar </button>
+            <button onClick={()=> routerBack.push('/lobby')}> Voltar </button>
+        </form>
+    </div>
+</div>
 
-                <label> Bairro </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
-
-                <br/>
-                <br/>
-
-                <label> Forma Pagamento </label>
-                <br/>
-                <select onChange={(e) => alteraInputFormPayment(e.target.value)} value="pix">
-                    <option value="pix"> PIX </option>
-                    <option value="debito"> DEBITO </option>
-                    <option value="credito"> CREDITO </option>
-                    <option value="dinheiro"> DINHEIRO </option>
-                </select>
-
-                <br/>
-                <br/>
-
-                <label> Dia do Pagamento </label>
-                <br/>
-                <select onChange={(e) => alteraInputDayPayment(e.target.value)} value='5'>
-                    <option value='5'> 5 </option>
-                    <option value='10'> 10 </option>
-                    <option value='15'> 15 </option>
-                    <option value='20'> 20 </option>
-                    <option value='25'> 25 </option>
-                    <option value='30'> 30 </option>
-                </select>
-
-                <br/>
-                <br/>
-
-                <label> Valor do Pagamento </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number"/>
-                
-                <br/>
-                <br/>
-
-                <button style={{height: 30, position: "fixed", bottom: 65, left: 0}} type="submit"> Cadastrar </button>
-                <br/>
-                <br/>
-
-                <button style={{height: 30, position: "fixed", bottom: 32, left: 0}} type="reset"> Limpar </button>
-                
-            </form>
-        </div>
     )
 
 }
