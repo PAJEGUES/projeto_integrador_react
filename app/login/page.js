@@ -10,9 +10,23 @@ export default function Login(){
     const[email, alteraEmail] = useState("")
     const[senha, alteraSenha] = useState("")
 
+    function autenticaUsuario(){
+      const usuario={
+        email:email,
+        senha:senha
+      }  
 
-    
-    const routerLogin = useRouter();
+      axios.post("/api/login", usuario, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then((response) => {
+        console.log(response);
+    })
+
+    }
+
     const routerBack = useRouter();
     
 
@@ -37,7 +51,7 @@ return(
                 <br></br>
             </div>
             
-            <button class="btnLogin" onClick={()=> routerLogin.push('/login')}> Login </button>
+            <button class="btnLogin" onClick={()=> autenticaUsuario()}> Login </button>
             <br></br>
             
             <button class="btnBack" onClick={()=> routerBack.push('/')}> Página Inicial </button>

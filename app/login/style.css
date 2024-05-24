@@ -17,10 +17,10 @@ body * {
   }
   .left-login{
     width: 50%;
-    /* height: 100vh; */
+    /* height: 100vh;  */
     background: rgb(6, 76, 92);
-    /* display: flex; */
-    justify-content: center;
+    /* ;display: flex;  */
+    justify-content: left;
     align-items: center;
     color: #f2f8f5;
     
