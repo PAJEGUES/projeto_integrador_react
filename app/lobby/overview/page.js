@@ -1,6 +1,5 @@
 'use client'
 import axios from "axios"
-import { headers } from "next/headers";
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react';
 import "./overview.css"
