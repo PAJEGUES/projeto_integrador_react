@@ -13,21 +13,28 @@ export default function Login(){
     function autenticaUsuario(){
       const usuario={
         email:email,
-        senha:senha
+        password:senha
       }  
 
       axios.post("/api/login", usuario, {
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Token": "rogerio"
         }
-    })
-    .then((response) => {
-        console.log(response);
-    })
+        })
+        .then((response) => {
+            console.log(response);
+            alert("Usuario autenticado com sucesso!")
+            routerPainel.push("/lobby")
+        })
+        .catch ((response) => {
+            alert("Email ou Senha incorretos...")
+        })
 
     }
 
     const routerBack = useRouter();
+    const routerPainel = useRouter();
     
 
 return(
