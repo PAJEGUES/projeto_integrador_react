@@ -80,7 +80,7 @@ export default function RegistrationData(){
                         <input className="input-box" onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
 
                         <label> Forma Pagamento </label>
-                        <select className="input-box" onChange={(e) => alteraInputFormPayment(e.target.value)} value="pix">
+                        <select className="input-box" onChange={(e) => alteraInputFormPayment(e.target.value)}>
                             <option value="pix"> PIX </option>
                             <option value="debito"> DEBITO </option>
                             <option value="credito"> CREDITO </option>
@@ -88,7 +88,7 @@ export default function RegistrationData(){
                         </select>
 
                         <label> Dia do Pagamento </label>
-                        <select className="input-box" onChange={(e) => alteraInputDayPayment(e.target.value)} value='5'>
+                        <select className="input-box" onChange={(e) => alteraInputDayPayment(e.target.value)} >
                             <option value='5'> 5 </option>
                             <option value='10'> 10 </option>
                             <option value='15'> 15 </option>
