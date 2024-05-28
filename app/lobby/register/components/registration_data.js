@@ -59,28 +59,28 @@ export default function RegistrationData(){
     }
     
     return (
-        <div id="registration-container"> {/* Adicione este ID para escopar o CSS */}
+        <div id="registration-container">
             <div id="container">
                 <div id="form-container">
                     <h1 id="title">Cadastro de Clientes</h1>
-                    <form id="form" onSubmit={(e)=> sendFormulary(e)}>
+                    <form id="form" onSubmit={sendFormulary}>
                         <label> Nome </label>
-                        <input className="input-box" onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
+                        <input className="input-box" value={inputName} onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
 
                         <label> Endereço </label>
-                        <input className="input-box" onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
+                        <input className="input-box" value={inputAddress} onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
 
                         <label> Número Casa</label>
-                        <input className="input-box" onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number"/>
+                        <input className="input-box" value={inputNumberHouse} onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number" min="0"/>
 
                         <label> Telefone </label>
-                        <input className="input-box" onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number"/>
+                        <input className="input-box" value={inputTelephone} onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number" min="0"/>
 
                         <label> Bairro </label>
-                        <input className="input-box" onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
+                        <input className="input-box" value={inputNeighborhood} onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
 
                         <label> Forma Pagamento </label>
-                        <select className="input-box" onChange={(e) => alteraInputFormPayment(e.target.value)}>
+                        <select className="input-box" value={inputFormPayment} onChange={(e) => alteraInputFormPayment(e.target.value)}>
                             <option value="pix"> PIX </option>
                             <option value="debito"> DEBITO </option>
                             <option value="credito"> CREDITO </option>
@@ -88,7 +88,7 @@ export default function RegistrationData(){
                         </select>
 
                         <label> Dia do Pagamento </label>
-                        <select className="input-box" onChange={(e) => alteraInputDayPayment(e.target.value)} >
+                        <select className="input-box" value={inputDayPayment} onChange={(e) => alteraInputDayPayment(e.target.value)} >
                             <option value='5'> 5 </option>
                             <option value='10'> 10 </option>
                             <option value='15'> 15 </option>
@@ -98,7 +98,7 @@ export default function RegistrationData(){
                         </select>
 
                         <label> Valor do Pagamento </label>
-                        <input className="input-box" onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number"/>
+                        <input className="input-box" value={inputValuePayment} onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number" min="0"/>
                         <div id="button">
                             <button type="submit"> Cadastrar </button>
                             <button type="reset"> Limpar </button>
