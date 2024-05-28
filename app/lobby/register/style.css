@@ -1,70 +1,66 @@
-#container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  #form-container {
-    width: 75%;
-    max-width: 500px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin-top: 50px;
-    border-radius: 8px;
-  }
-  
-  #title {
-    text-align: center;
-  }
-  
-  #form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #form label {
-    margin-bottom: 8px;
-  }
-  
-  .input-box,
-  select.input-box {
-    width: calc(100% - 20px); /* Ajuste conforme necessário */
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  #form label {
-    margin-bottom: 8px;
-    font-weight: bold; /* Adiciona negrito aos labels */
-  }
+#registration-container #container {
+  display: flex;
+  justify-content: center;
+}
 
-  button {
-    flex: 1; /* Ocupa todo o espaço disponível */
-    margin-right: 8px; /* Espaçamento entre os botões */
-    padding: 12px 20px;
-    margin-bottom: 10px;
-    background-color: #007bff;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+#registration-container #form-container {
+  width: 75%;
+  max-width: 500px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 8px;
+}
+
+#registration-container #title {
+  text-align: center;
+}
+
+#registration-container #form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registration-container #form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#registration-container .input-box,
+#registration-container select.input-box {
+  width: calc(100% - 20px); 
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#registration-container #button {
+  display: flex;
+  flex-direction: column;
+}
+
+#registration-container #button button {
+  flex: 1;
+  margin: 8px 0;
+  padding: 16px 20px; 
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px; 
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#registration-container #button button:hover {
+  background-color: #0056b3;
+}
+
+@media only screen and (max-width: 600px){
+  #registration-container #form-container {
+      margin-top: 20px;
   }
-  
-  button:last-child {
-    margin-right: 0; /* Remove o espaçamento do último botão */
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  @media only screen and (max-width: 600px){
-    #form-container {
-        margin-top: 20px;
-      }
-  }
+}

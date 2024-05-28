@@ -25,7 +25,7 @@ return(
         <div class="right-login">
             <div class="card-login">
                 <div class='textfield'>
-                    <label for="usuario">Usuário: </label>
+                    <label for="usuario">Email: </label>
                     <input onChange={(evento)=>alteraEmail(evento.target.value)} type="text" name="usuario" placeholder=""></input>
                 </div>
                
