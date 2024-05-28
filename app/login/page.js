@@ -49,7 +49,7 @@ return(
         <form class="right-login" onSubmit={(evento)=> autenticaUsuario(evento)}>
             <div class="card-login">
                 <div class='textfield'>
-                    <label for="usuario">Usuário: </label>
+                    <label for="usuario">Email: </label>
                     <input onChange={(evento)=>alteraEmail(evento.target.value)} type="text" name="usuario" placeholder=""></input>
                 </div>
                
