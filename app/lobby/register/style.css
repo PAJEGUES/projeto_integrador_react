@@ -1,6 +1,71 @@
-.label-container {
-    text-align: center;
-    color: white;
+#registration-container #container {
+  display: flex;
+  justify-content: center;
 }
 
+#registration-container #form-container {
+  width: 75%;
+  max-width: 500px;
+  background-color: white; /* Cor de fundo clara para destaque */
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave para destaque */
+}
 
+#registration-container #title {
+  text-align: center;
+  color: #333; /* Cor do texto para contraste */
+}
+
+#registration-container #form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registration-container #form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333; /* Cor do texto para contraste */
+}
+
+#registration-container .input-box,
+#registration-container select.input-box {
+  width: calc(100% - 20px); 
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9; /* Fundo claro para os campos de entrada */
+  color: #333; /* Cor do texto dos campos de entrada */
+}
+
+#registration-container #button {
+  display: flex;
+  flex-direction: column;
+}
+
+#registration-container #button button {
+  flex: 1;
+  margin: 8px 0;
+  padding: 16px 20px; 
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px; 
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#registration-container #button button:hover {
+  background-color: #0056b3;
+}
+
+@media only screen and (max-width: 600px) {
+  #registration-container #form-container {
+    margin-top: 20px;
+  }
+}

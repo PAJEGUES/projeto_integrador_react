@@ -3,7 +3,7 @@ import "./search"
 import axios from "axios"
 import { useState,useEffect } from "react";
 import Search from "./search";
-import { GoogleMap } from "@react-google-maps/api";
+
 
 
 export default function Maps(){

@@ -2,6 +2,8 @@
 
 import axios from 'axios';
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
+import '../style.css';
 
 export default function RegistrationData(){
 
@@ -10,9 +12,11 @@ export default function RegistrationData(){
     const [inputNumberHouse, alteraInputNumberHouse] = useState("");
     const [inputTelephone, alteraInputTelephone] = useState("");
     const [inputNeighborhood, alteraInputNeighborhood] = useState("");
-    const [inputFormPayment, alteraInputFormPayment] = useState("");
-    const [inputDayPayment, alteraInputDayPayment] = useState("");
+    const [inputFormPayment, alteraInputFormPayment] = useState("pix");
+    const [inputDayPayment, alteraInputDayPayment] = useState("5");
     const [inputValuePayment, alteraInputValuePayment] = useState("");
+
+    const routerBack = useRouter();
 
     function sendFormulary(e) {
         e.preventDefault();
@@ -20,30 +24,30 @@ export default function RegistrationData(){
         const formData = {
             name: inputName,
             address: inputAddress,
-            numberhouse: inputNumberHouse,
+            housenumber: inputNumberHouse,
             telephone: inputTelephone,
             neighborhood: inputNeighborhood,
-            formpayment: inputFormPayment,
-            daypayment: inputDayPayment,
-            valuepayment: inputValuePayment
+            formofpayment: inputFormPayment,
+            dateofpayment: inputDayPayment,
+            paymentamount: inputValuePayment
         };
-    
+
         axios.post('/api/post_client', formData, {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         .then(response => {
-            if (response.status === 200) {
+            if (response.status === 201) {
                 alert("Cadastro realizado com sucesso!");
-                setInputName("");
-                setInputAddress("");
-                setInputNumberHouse("");
-                setInputTelephone("");
-                setInputNeighborhood("");
-                setInputFormPayment("");
-                setInputDayPayment("");
-                setInputValuePayment("");
+                alteraInputName("");
+                alteraInputAdress("");
+                alteraInputNumberHouse("");
+                alteraInputTelephone("");
+                alteraInputNeighborhood("");
+                alteraInputFormPayment("pix");
+                alteraInputDayPayment("5");
+                alteraInputValuePayment("");
             } else {
                 alert("Ocorreu um erro ao cadastrar. Por favor, tente novamente.");
             }
@@ -54,86 +58,55 @@ export default function RegistrationData(){
         });
     }
     
-    return(
-        <div className="label-container">
-            <form onSubmit={(e)=> sendFormulary(e)}>
-                <br/>
-                <label> Nome </label>
-                <br/>
-                <input onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
+    return (
+        <div id="registration-container">
+            <div id="container">
+                <div id="form-container">
+                    <h1 id="title">Cadastro de Clientes</h1>
+                    <form id="form" onSubmit={sendFormulary}>
+                        <label> Nome </label>
+                        <input className="input-box" value={inputName} onChange={ (e)=> alteraInputName(e.target.value)} type="text"/>
 
-                <br/>
-                <br/>
+                        <label> Endereço </label>
+                        <input className="input-box" value={inputAddress} onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
 
-                <label> Endereço </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputAdress(e.target.value)} type="text"/>
+                        <label> Número Casa</label>
+                        <input className="input-box" value={inputNumberHouse} onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number" min="0"/>
 
-                <br/>
-                <br/>
+                        <label> Telefone </label>
+                        <input className="input-box" value={inputTelephone} onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number" min="0"/>
 
-                <label> Número Casa</label>
-                <br/>
-                <input onChange= {(e)=> alteraInputNumberHouse(e.target.value)} type="number"/>
+                        <label> Bairro </label>
+                        <input className="input-box" value={inputNeighborhood} onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
 
-                <br/>
-                <br/>
+                        <label> Forma Pagamento </label>
+                        <select className="input-box" value={inputFormPayment} onChange={(e) => alteraInputFormPayment(e.target.value)}>
+                            <option value="pix"> PIX </option>
+                            <option value="debito"> DEBITO </option>
+                            <option value="credito"> CREDITO </option>
+                            <option value="dinheiro"> DINHEIRO </option>
+                        </select>
 
-                <label> Telefone </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputTelephone(e.target.value)} type="number"/>
+                        <label> Dia do Pagamento </label>
+                        <select className="input-box" value={inputDayPayment} onChange={(e) => alteraInputDayPayment(e.target.value)} >
+                            <option value='5'> 5 </option>
+                            <option value='10'> 10 </option>
+                            <option value='15'> 15 </option>
+                            <option value='20'> 20 </option>
+                            <option value='25'> 25 </option>
+                            <option value='30'> 30 </option>
+                        </select>
 
-                <br/>
-                <br/>
-
-                <label> Bairro </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputNeighborhood(e.target.value)} type="text"/>
-
-                <br/>
-                <br/>
-
-                <label> Forma Pagamento </label>
-                <br/>
-                <select onChange={(e) => alteraInputFormPayment(e.target.value)}>
-                    <option value="pix"> PIX </option>
-                    <option value="debito"> DEBITO </option>
-                    <option value="credito"> CREDITO </option>
-                    <option value="dinheiro"> DINHEIRO </option>
-                </select>
-
-                <br/>
-                <br/>
-
-                <label onChange={(e)=> alteraInputDayPayment(e.target.value)}> Dia do Pagamento </label>
-                <br/>
-                <select>
-                    <option value="5"> 5 </option>
-                    <option value="10"> 10 </option>
-                    <option value="15"> 15 </option>
-                    <option value="20"> 20 </option>
-                    <option value="25"> 25 </option>
-                    <option value="30"> 30 </option>
-                </select>
-
-                <br/>
-                <br/>
-
-                <label> Valor do Pagamento </label>
-                <br/>
-                <input onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number"/>
-                
-                <br/>
-                <br/>
-
-                <button style={{height: 30, position: "fixed", bottom: 65, left: 0}} type="submit"> Cadastrar </button>
-                <br/>
-                <br/>
-
-                <button style={{height: 30, position: "fixed", bottom: 32, left: 0}} type="reset"> Limpar </button>
-                
-            </form>
+                        <label> Valor do Pagamento </label>
+                        <input className="input-box" value={inputValuePayment} onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number" min="0"/>
+                        <div id="button">
+                            <button type="submit"> Cadastrar </button>
+                            <button type="reset"> Limpar </button>
+                            <button type="button" onClick={()=> routerBack.push('/lobby')}> Voltar </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
-
 }
