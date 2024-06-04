@@ -78,23 +78,18 @@ export default function Overview(){
 
                 {
                     filtrar == false &&
-                    <button onClick={() => setFiltrar (true)}>Filtrar</button>
+                    <button onClick={() => setFiltrar (true)}>Filtros</button>
                 }
                 
                 {
                     filtrar == true &&
                     <>
-                    <button onClick={() => setFiltrar (false)}>Filtrar </button>
+                    <button onClick={() => setFiltrar (false)}>Filtros</button>
                     <input className='input-name' type="text" placeholder="Nome do Cliente"/>
                     <br/>
                     <input className='rua' type="text" placeholder="Rua"/>
                     <input className='bairro' type="text" placeholder="Bairro"/>
                     <input className='dia-pagamento' type="number" placeholder="Dia do pagamento"/>
-                    <select className='status-pagamento' name="status do pagamento">
-                    <option value="">Status do pagamento</option>
-                    <option value="pago">Pago</option>
-                    <option value="não_pago">Não Pago</option>
-                    </select>
                     <button>Buscar</button>
                     
                     </>
@@ -135,9 +130,17 @@ export default function Overview(){
                         </tr>
 
                         {expandir !== cliente.id &&
-                            <tr>
+                            <>
+                            <tr >
                                 <td colSpan="2"><button onClick={() => setExpand(cliente.id)}>Expandir</button></td>
+                                
                             </tr>
+                        
+                            <tr >
+                            <td className="sem_borda" colSpan="2"></td>
+                            
+                            </tr>
+                            </>
                         }
 
                         {expandir === cliente.id &&
@@ -229,15 +232,7 @@ export default function Overview(){
 
                                 {!editando && (
                                     <>
-                                        <tr>
-                                            <td colSpan="2"><button>Confirmar pagamento</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan="2"><button>Enviar comprovante</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan="2"><button>Imprimir comprovante</button></td>
-                                        </tr>
+                                        
                                         <tr>
                                             <td colSpan="2"><button onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button></td>
                                         </tr>
@@ -246,6 +241,9 @@ export default function Overview(){
                                         </tr>
                                         <tr>
                                             <td colSpan="2"><button onClick={() => setExpand(null)}>Ocultar</button></td>
+                                        </tr>
+                                        <tr >
+                                            <td className="sem_borda" colSpan="2"></td>
                                         </tr>
                                     </>
                                 )}
