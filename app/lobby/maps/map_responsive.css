@@ -1,11 +1,14 @@
 
-.map-responsive{
+ #bE .map-responsive{
     overflow: hidden;
     padding-bottom: 40%;
     position:realtive;
     height: 0;
+    background:rgb(87, 87, 87);
+    list-style-type: none;
 }
-.map-responsive iframe{
+
+#iframe .map-responsive iframe{
     left:0;
     top:0;
     height:100%;

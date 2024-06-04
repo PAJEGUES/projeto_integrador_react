@@ -4,19 +4,16 @@ import "../style.css";
 
 export default function Buttons(){
     
-    const routerExit = useRouter()
-    const routerOverview = useRouter()
-    const routerLocation = useRouter()
-    const routerRegister = useRouter()
+    const router = useRouter();
 
     return(
         <div className="button-container">
-            <button className="btnRegister" onClick={()=> routerRegister.push ('/lobby/register')}> Cadastro </button>
-            <button className="btnLocation" onClick={()=> routerLocation.push ('/lobby/maps')}> Localização </button>
-            <button className="btnOverview" onClick={()=> routerOverview.push ('/lobby/overview')}> Visão Geral </button>
-            <button className="btnExit" onClick={()=> routerExit.push ('/login')}> Sair </button>
+            <div className="button-wrapper">
+                <button id="btnRegister" onClick={()=> router.push('/lobby/register')}> Cadastrar </button>
+                <button id="btnLocation" onClick={()=> router.push('/lobby/maps')}> Mapa </button>
+                <button id="btnOverview" onClick={()=> router.push('/lobby/overview')}> Visão Geral </button>
+                <button id="btnExit" onClick={()=> router.push('/login')}> Sair </button>
+            </div>
         </div>
     )
 }
-
-
