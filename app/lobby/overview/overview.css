@@ -3,14 +3,17 @@
 
 
 table, td, th{
+
     font-weight: bold;
     border-collapse: collapse;
-    border: 1px solid 
+    border: 1px solid
+     
     
 }
 
 .card {
-    
+    font-size: 22px;
+    color: white;
     border-radius: 20px;
     border-collapse: collapse;
     width: 100%;
@@ -56,4 +59,10 @@ table, td, th{
 
 .status-pagamento{
     width: 100%;
+}
+
+.sem_borda{
+    border-left-color: transparent;
+    border-right-color: transparent;
+    padding-bottom: 50px;
 }
