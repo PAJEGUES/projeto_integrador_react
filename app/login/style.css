@@ -46,7 +46,7 @@ body * {
   justify-content: center;
   align-items: center;
   padding: 20px 35px;
-  background: #f2f8f5;;
+  background: #f2f8f5;
   border-radius: 20px;
   box-shadow: 0px 10px 40px #00000056;
 }
@@ -116,94 +116,35 @@ body * {
 
 @media only screen and (max-width: 600px) {
   .main-login {
-      flex-direction: column;
+    flex-direction: column;
   }
   .left-login > h1 {
-      display: none;
+    display: none;
   }
   .left-login {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
   .right-login {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
   .left-login-image {
-      width: 50%;
+    width: 50%;
   }
   .card-login {
-      width: 90%;
+    width: 90%;
   }
 }
 
 @media only screen and (min-width: 601px) {
   .left-login-image {
-      width: 30%; /* Ajuste o valor conforme necessário */
+    width: 30%;
   }
-  .textfield > input{
-    width: 100px;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    background: #514869;
-    color: #f0ffffde;
-    font-size: 12pt;
-    box-shadow: 0px 10px 40px #00000056;
-    outline: none;
-    box-sizing: border-box;
-  }
-  .textfield > label{
-    color: #f0ffffde;
-    margin-bottom: 10px;
-  }
-  .textfield > input ::placeholder{
-    color: #f0ffff94
-  }
-  .btn-login{
-    width: 100%;
-    padding: 16px 0px;
-    margin: 25px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: #2b134b;
-    background: #00ff88;
-    cursor: pointer;
-    box-shadow: 0px 10px 40px -12px #00ff8052;
+}
 
+@media only screen and (max-width: 950px) {
+  .card-login {
+    width: 85%;
   }
-  @media only screen and (max-width:950px){
-    .card-login{
-        width: 85%;
-
-    }
-  }
-  @media only screen and (max-width:600px){
-    .main-login{
-        flex-direction: column;
-    }
-    .left-login > h1{
-        display: none;
-    }
-    .left-login{
-        width: 100%;
-        height: auto;
-    }
-    .right-login{
-        width: 100%;
-        height: auto;
-    }
-    .left-login-image{
-        width: 50vw;
-    }
-    .card-login{
-        width: 90%;
-    }
-    
-    
-    
-  }
+}
