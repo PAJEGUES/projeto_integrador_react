@@ -43,8 +43,9 @@ export default function Overview(){
         })   
     }
 
-    function salvarClienteEditado(id) {
-        axios.put("/api/put_client/" + id, {
+    function salvarClienteEditado(id){
+        const clienteEditado = clientes.find(c => c.id === id);
+        axios.put("/api/put_client/" + id, clienteEditado, {
             headers: {
                 'Content-type': 'application/json'
             }
