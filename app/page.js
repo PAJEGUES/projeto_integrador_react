@@ -47,7 +47,12 @@ export default function Marketing() {
     return (
         <section className='hero'>
             <nav>
-                <div className="logo">Safe<span>House.</span></div>
+                <div className="logo-container">
+                    <div className="logo-circle">
+                        <span className="logo-letters">S<span className="logo-h">H</span></span>
+                    </div>
+                    <div className="logo">Safe<span>House.</span></div>
+                </div>
                 <ul className="nav__list">
                     <button className="btn btn-1" onClick={() => router.push('/login')}>Login</button>
                 </ul>
@@ -55,10 +60,34 @@ export default function Marketing() {
             <div className="content">
                 <h1>Proteja seu Patrimônio com SafeHouse</h1>
                 <p>Segurança e tranquilidade garantidas para você e sua família.</p>
-                
+
+                <div className="info-boxes">
+                    <div className="info-box">
+                        <img src="https://cdn-icons-png.flaticon.com/512/69/69544.png" alt="Sobre" />
+                        <h3>Sobre</h3>
+                        <p>Empresa focada em Segurança Patrimonial.</p>
+                    </div>
+                    <div className="info-box">
+                        <img src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-experiance-line-icon-png-image_9063162.png" alt="Experiência" />
+                        <h3>Experiência</h3>
+                        <p>Há 1 ano levando segurança e tranquilidade para seu lar.</p>
+                    </div>
+                    <div className="info-box">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3937/3937026.png" alt="Qualidade" />
+                        <h3>Qualidade</h3>
+                        <p>Equipe profissional totalmente capacitada e focada para desempenhar as atividades.</p>
+                    </div>
+                </div>
+
+                {/* New Section: Company Information */}
+                <div className="history-box">
+                    <h3>História da Empresa</h3>
+                    <p>Empresa criada em Outubro de 2023 com o foco em elevar o padrão de Segurança Patrimonial.</p>
+                </div>
+
                 {/* New Section: Team of Administrators */}
                 <div className="admin-team">
-                    <h2>Time de Administradores</h2>
+                    <h2>Administradores</h2>
                     <div className="team-members">
                         <div className="team-member">
                             <img src="ailson.jpg" alt="Ailson" />
@@ -80,24 +109,6 @@ export default function Marketing() {
                             <img src="vinicius.jpg" alt="Vinicius" />
                             <p>Vinicius</p>
                         </div>
-                    </div>
-                </div>
-
-                <div className="info-boxes">
-                    <div className="info-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/69/69544.png" alt="Sobre" />
-                        <h3>Sobre</h3>
-                        <p>Empresa focada em Segurança Patrimonial.</p>
-                    </div>
-                    <div className="info-box">
-                        <img src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-experiance-line-icon-png-image_9063162.png" alt="Experiência" />
-                        <h3>Experiência</h3>
-                        <p>Há 1 ano levando segurança e tranquilidade para seu lar.</p>
-                    </div>
-                    <div className="info-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3937/3937026.png" alt="Qualidade" />
-                        <h3>Qualidade</h3>
-                        <p>Equipe profissional totalmente capacitada e focada para desempenhar as atividades.</p>
                     </div>
                 </div>
 

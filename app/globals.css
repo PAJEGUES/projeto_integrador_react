@@ -16,15 +16,30 @@ body {
   min-height: 100vh;
 }
 
-.hero {
-  flex: 1;
-  background-image: linear-gradient(rgba(0,0,0, .6), rgba(0,0,0, .6)),
-  url('/fundo.jpg'); /* Corrigir o caminho conforme necessário */
-  background-size: cover;
-  background-position: center;
+.logo-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-circle {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background-color: rgb(11, 78, 94); /* Mesma cor do fundo da página */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 40px; /* Espaço entre o círculo e o texto */
+}
+
+.logo-letters {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}
+
+.logo-h {
+  color: rgb(135, 206, 250);
 }
 
 .logo {
@@ -34,6 +49,16 @@ body {
 
 .logo span {
   color: lightskyblue;
+}
+
+.hero {
+  flex: 1;
+  background-color: rgb(11, 78, 94); /* Nova cor de fundo */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 nav {
@@ -93,6 +118,7 @@ nav {
 .content {
   width: 50%;
   margin: 50px auto;
+  margin-top: 350px;
   text-align: center;
 }
 
@@ -101,18 +127,20 @@ nav {
   font-size: 45px;
   text-transform: capitalize;
   margin-bottom: 20px;
+  margin-left: -10px; /* Desloca para a esquerda */
 }
 
 .content p {
   color: #dfdfdf;
   font-size: 20px;
   margin-bottom: 40px;
+  margin-left: -10px; /* Desloca para a esquerda */
 }
 
 .info-boxes {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 520px;
 }
 
 .info-box {
@@ -123,6 +151,24 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 30%;
   text-align: center;
+}
+
+.history-box {
+  background-color: rgba(135, 206, 235, .85); /* Cor azul */
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  text-align: center;
+  margin-top: 250px;
+  margin-bottom: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.history-box h3{
+  font-size: 30px;
 }
 
 .info-box h3 {
@@ -225,7 +271,8 @@ nav {
 
 .admin-team {
   text-align: center;
-  margin: 50px 0;
+  margin-top: 400px;
+  margin-bottom: 400px;
 }
 
 .admin-team h2 {
@@ -255,7 +302,6 @@ nav {
   color: #fff;
   font-size: 18px;
 }
-
 
 /* Media Queries for Mobile */
 @media (max-width: 600px) {
@@ -303,5 +349,47 @@ nav {
 
   .footer-content {
     flex-direction: column;
+  }
+
+  /* Adicione abaixo as regras de estilo para a nova tela "Informações da Empresa" */
+
+  .info-empresa {
+    background-color: rgba(135, 206, 235, .85);
+    color: black;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    margin: 0 auto 20px auto; /* Distancia da tela anterior */
+  }
+
+  .info-empresa h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .info-empresa textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(135, 206, 235, .85);
+    color: black;
+    font-size: 16px;
+    resize: vertical; /* Permite redimensionamento vertical */
+  }
+
+  /* Linha separadora entre as telas */
+  .separador {
+    border-top: 2px solid #fff;
+    margin-top: 30px;
+  }
+
+  /* Media Query para telas menores */
+  @media (max-width: 600px) {
+    .info-empresa {
+      width: 100%;
+    }
   }
 }
