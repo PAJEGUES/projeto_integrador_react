@@ -82,54 +82,47 @@ nav {
 }
 
 .btn-2, .btn-3 {
-  padding: 15px 30px;
-  border: 2px solid lightskyblue;
-  margin: 0 10px;
-}
-
-.btn-3 {
   background-color: lightskyblue;
+  padding: 10px 20px;
 }
 
-.btn-2:hover {
-  background-color: lightskyblue;
-}
-
-.btn-3:hover {
-  background-color: transparent;
-  border: 2px solid rgb(135, 206, 250);
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .content {
-  width: 60%;
-  margin: 0 auto;
-  padding-top: 100px;
+  width: 50%;
+  margin: 50px auto;
   text-align: center;
 }
 
 .content h1 {
-  text-transform: uppercase;
-  font-size: 40px;
+  color: #fff;
+  font-size: 45px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
 }
 
 .content p {
-  font-size: 15px;
-  margin-bottom: 50px;
+  color: #dfdfdf;
+  font-size: 20px;
+  margin-bottom: 40px;
 }
 
 .info-boxes {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 50px;
 }
 
 .info-box {
-  background-color: rgba(135, 206, 250, 0.85);
+  background-color: rgba(135, 206, 235, .85); /* Cor azul */
   color: black;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 30%;
+  text-align: center;
 }
 
 .info-box h3 {
@@ -140,6 +133,62 @@ nav {
 
 .info-box p {
   font-size: 16px;
+}
+
+.info-box img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  background-color: rgba(135, 206, 235, .85); /* Cor azul */
+  color: black;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  text-align: left;
+}
+
+.contact-form h2 {
+  color: black;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+  display: block;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-form .form-group input[type="text"],
+.contact-form .form-group input[type="email"],
+.contact-form .form-group select {
+  background-color: #fff;
+  color: #000;
+}
+
+.map-frame {
+  margin-top: 20px;
+  border: 5px solid rgba(135, 206, 235, .85); /* Cor azul */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
 .footer {
@@ -174,6 +223,40 @@ nav {
   font-size: 20px;
 }
 
+.admin-team {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.admin-team h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  color: #fff;
+  font-size: 18px;
+}
+
+
 /* Media Queries for Mobile */
 @media (max-width: 600px) {
   .hero {
@@ -183,34 +266,21 @@ nav {
   }
 
   .logo {
-    font-size: 50px;
-    text-align: center;
-    width: 100%;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav__list {
-    flex-direction: column;
-    align-items: center;
+    font-size: 60px;
   }
 
   .nav__link {
     font-size: 20px;
-    margin: 10px 0;
+    margin: 0 10px;
   }
 
   .btn {
-    font-size: 18px;
-    padding: 8px 16px;
+    font-size: 15px;
+    padding: 10px 15px;
   }
 
   .content {
     width: 90%;
-    padding-top: 50px;
   }
 
   .content h1 {
@@ -218,12 +288,12 @@ nav {
   }
 
   .content p {
-    font-size: 14px;
-    margin-bottom: 30px;
+    font-size: 18px;
   }
 
   .info-boxes {
     flex-direction: column;
+    margin-top: 50px; /* Ajusta o espaçamento para telas menores */
   }
 
   .info-box {
@@ -231,25 +301,7 @@ nav {
     margin-bottom: 20px;
   }
 
-  .footer {
-    padding: 10px;
-  }
-
-  .footer h2 {
-    font-size: 18px;
-  }
-
   .footer-content {
     flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .footer-item h2 {
-    font-size: 16px;
   }
 }
