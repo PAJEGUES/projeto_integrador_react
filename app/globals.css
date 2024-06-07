@@ -338,7 +338,7 @@ nav {
   margin-bottom: 10px;
 }
 
-#nome, #email, #endereco, #cidade, #motocicleta {
+#nome, #email, #endereco, #cidade {
   font-size: 20px;
 }
 
@@ -355,8 +355,24 @@ nav {
     padding: 20px;
   }
 
+  .logo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-circle {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
   .logo {
     font-size: 60px;
+    text-align: center;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .nav__link {
@@ -369,17 +385,35 @@ nav {
     padding: 8px 15px;
   }
 
+  .btn-1 {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+  }
+
+  .content {
+    width: 90%;
+  }
+
+  .title-section {
+    width: 90%;
+  }
+
   .title-section h1,
   .content h1 {
-    font-size: 36px;
+    font-size: 40px;
   }
 
-  .title-section p {
-    font-size: 28px;
-  }
-
+  .title-section p,
   .content p {
-    font-size: 18px;
+    font-size: 24px;
+  }
+
+  .info-boxes {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
   }
 
   .info-box,
@@ -393,17 +427,27 @@ nav {
     font-size: 24px;
   }
 
-  .info-box p {
+  .info-box p,
+  .history-box p {
     font-size: 20px;
   }
 
   .contact-form .form-group input,
   .contact-form .form-group select {
-    padding: 20px;
+    padding: 15px;
   }
 
   .footer h2 {
     font-size: 18px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-item {
+    align-items: center;
   }
 
   .admin-team h2 {
@@ -416,11 +460,25 @@ nav {
   }
 
   .team-member img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 
   .team-member p {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .btn-1 {
+    width: auto;
+    margin: 20px auto;
+  }
+
+  /* Adiciona a seguinte regra */
+  nav {
+    flex-direction: column;
+  }
+
+  nav .btn-1 {
+    margin-top: 20px;
   }
 }
