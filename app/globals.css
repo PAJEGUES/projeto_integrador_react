@@ -122,6 +122,28 @@ nav {
   text-align: center;
 }
 
+.title-section {
+  width: 50%;
+  margin: 50px auto;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.title-section h1 {
+  color: #fff;
+  font-size: 60px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  margin-left: -10px; /* Desloca para a esquerda */
+}
+
+.title-section p {
+  color: #dfdfdf;
+  font-size: 36px;
+  margin-bottom: 40px;
+  margin-left: -10px; /* Desloca para a esquerda */
+}
+
 .content h1 {
   color: #fff;
   font-size: 45px;
@@ -141,6 +163,14 @@ nav {
   display: flex;
   justify-content: space-between;
   margin-top: 150px;
+  background-color: white;
+  padding: 40px;
+}
+
+.history-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
 }
 
 .info-box {
@@ -156,6 +186,7 @@ nav {
 .history-box {
   background-color: rgba(135, 206, 235, .85); /* Cor azul */
   color: black;
+  font-size: 24px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -167,18 +198,18 @@ nav {
   margin-right: auto;
 }
 
-.history-box h3{
+.history-box h3 {
   font-size: 30px;
 }
 
 .info-box h3 {
-  font-size: 20px;
+  font-size: 30px; /* Tamanho da fonte aumentado */
   margin-bottom: 10px;
   font-weight: bold;
 }
 
 .info-box p {
-  font-size: 16px;
+  font-size: 24px; /* Tamanho da fonte aumentado */
 }
 
 .info-box img {
@@ -188,20 +219,26 @@ nav {
   margin-bottom: 10px;
 }
 
-.contact-form {
-  background-color: rgba(135, 206, 235, .85); /* Cor azul */
-  color: black;
+.contact-form { /* Cor azul */
   padding: 20px;
   margin-top: 50px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 100%;
   text-align: left;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.contact-form h2 {
-  color: black;
-  margin-bottom: 20px;
+.contact-form label {
+  font-size: 28px;
+}
+
+.contact-section h2 {
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 80px;
 }
 
 .contact-form .form-group {
@@ -210,7 +247,7 @@ nav {
 
 .contact-form .form-group label {
   display: block;
-  color: black;
+  color: white;
   margin-bottom: 5px;
 }
 
@@ -239,8 +276,7 @@ nav {
 
 .footer {
   text-align: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  padding: 50px;
   color: #dfdfdf;
   margin-top: auto;
 }
@@ -248,7 +284,7 @@ nav {
 .footer-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
 }
 
@@ -259,31 +295,35 @@ nav {
 }
 
 .footer img {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
 .footer h2 {
   margin: 10px 0 0 0;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .admin-team {
   text-align: center;
-  margin-top: 150px;
-  margin-bottom: 150px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.team-member p {
+  font-size: 24px; /* Tamanho da fonte aumentado */
 }
 
 .admin-team h2 {
-  font-size: 30px;
+  font-size: 48px;
   margin-bottom: 30px;
   color: #fff;
 }
 
 .team-members {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 20px;
 }
 
@@ -292,18 +332,20 @@ nav {
 }
 
 .team-member img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-.team-member p {
-  color: #fff;
-  font-size: 18px;
+#nome, #email, #endereco, #cidade, #motocicleta {
+  font-size: 20px;
 }
 
-
+.team-member p {
+  color: #fff;
+  font-size: 30px;
+}
 
 /* Media Queries for Mobile */
 @media (max-width: 600px) {
@@ -324,76 +366,61 @@ nav {
 
   .btn {
     font-size: 15px;
-    padding: 10px 15px;
+    padding: 8px 15px;
   }
 
-  .content {
-    width: 90%;
-  }
-
+  .title-section h1,
   .content h1 {
-    font-size: 30px;
+    font-size: 36px;
+  }
+
+  .title-section p {
+    font-size: 28px;
   }
 
   .content p {
     font-size: 18px;
   }
 
-  .info-boxes {
-    flex-direction: column;
-    margin-top: 50px; /* Ajusta o espaçamento para telas menores */
-
-  }
-
-  .info-box {
-    width: 90%;
-    margin-bottom: 20px;
-    
-  }
-
-  .footer-content {
-    flex-direction: column;
-  }
-
-  /* Adicione abaixo as regras de estilo para a nova tela "Informações da Empresa" */
-
-  .info-empresa {
-    background-color: rgba(135, 206, 235, .85);
-    color: black;
-    padding: 20px;
-    margin-top: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    margin: 0 auto 20px auto; /* Distancia da tela anterior */
-  }
-
-  .info-empresa h2 {
-    font-size: 25px;
-    margin-bottom: 15px;
-  }
-
-  .info-empresa textarea {
+  .info-box,
+  .history-box {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba(135, 206, 235, .85);
-    color: black;
+    margin-bottom: 20px;
+  }
+
+  .info-box h3,
+  .history-box h3 {
+    font-size: 24px;
+  }
+
+  .info-box p {
+    font-size: 20px;
+  }
+
+  .contact-form .form-group input,
+  .contact-form .form-group select {
+    padding: 20px;
+  }
+
+  .footer h2 {
+    font-size: 18px;
+  }
+
+  .admin-team h2 {
+    font-size: 36px;
+  }
+
+  .team-members {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .team-member img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-member p {
     font-size: 16px;
-    resize: vertical; /* Permite redimensionamento vertical */
-  }
-
-  /* Linha separadora entre as telas */
-  .separador {
-    border-top: 2px solid #fff;
-    margin-top: 30px;
-  }
-
-  /* Media Query para telas menores */
-  @media (max-width: 600px) {
-    .info-empresa {
-      width: 100%;
-    }
   }
 }
