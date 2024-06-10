@@ -52,12 +52,12 @@ export default function Login() {
             const salt = await bcrypt.genSalt(10);
             const hash = await bcrypt.hash(senha, salt);
 
-            const usuario = {
+            const nightguard = {
                 email: email,
                 password: senha
             };
 
-            axios.post("/api/login_nightguard", usuario, {
+            axios.post("/api/login_nightguard", nightguard, {
                 headers: {
                     "Content-Type": "application/json",
                     "Token": hash
