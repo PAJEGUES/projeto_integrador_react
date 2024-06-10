@@ -46,36 +46,6 @@ export default function Login() {
             console.error("Erro ao gerar o hash da senha:", error);
             alert("Ocorreu um erro ao autenticar. Tente novamente.");
         }
-
-        try {
-            // Gerar o hash da senha
-            const salt = await bcrypt.genSalt(10);
-            const hash = await bcrypt.hash(senha, salt);
-
-            const nightguard = {
-                email: email,
-                password: senha
-            };
-
-            axios.post("/api/login_nightguard", nightguard, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Token": hash
-                }
-            })
-                .then((response) => {
-                    console.log(response);
-                    alert("Usuario autenticado com sucesso!");
-                    router.push("/lobby");
-                })
-                .catch((error) => {
-                    console.error(error);
-                    alert("Email ou Senha incorretos...");
-                });
-        } catch (error) {
-            console.error("Erro ao gerar o hash da senha:", error);
-            alert("Ocorreu um erro ao autenticar. Tente novamente.");
-        }
     }
 
     return (
