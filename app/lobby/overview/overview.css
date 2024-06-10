@@ -1,12 +1,17 @@
 
-
+#overview{
+   color: white;
+   text-align: center;
+    
+    
+}
 
 
 table, td, th{
 
     font-weight: bold;
     border-collapse: collapse;
-    border: 1px solid
+    border: 3px solid
      
     
 }
