@@ -27,7 +27,7 @@ export default function Login() {
                 password: senha
             };
 
-            axios.post("/api/login", usuario, {
+            axios.post("/api/login_nightguard", usuario, {
                 headers: {
                     "Content-Type": "application/json",
                     "Token": hash
@@ -40,8 +40,24 @@ export default function Login() {
                 })
                 .catch((error) => {
                     console.error(error);
-                    alert("Email ou Senha incorretos...");
+                    
+                    axios.post("/api/login", usuario, {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Token": hash
+                        }
+                    })
+                        .then((response) => {
+                            console.log(response);
+                            alert("Usuario autenticado com sucesso!");
+                            router.push("/lobby");
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                            alert("Email ou Senha incorretos...");
+                        });
                 });
+
         } catch (error) {
             console.error("Erro ao gerar o hash da senha:", error);
             alert("Ocorreu um erro ao autenticar. Tente novamente.");
