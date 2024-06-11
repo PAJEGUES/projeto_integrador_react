@@ -18,7 +18,6 @@ export default function Login() {
         }
 
         try {
-            // Gerar o hash da senha
             const salt = await bcrypt.genSalt(10);
             const hash = await bcrypt.hash(senha, salt);
 
@@ -84,6 +83,10 @@ export default function Login() {
                     <div className="button-group">
                         <button className="btn-login" type="submit">Login</button>
                         <button className="btn-back" type="reset"> Limpar </button>
+                    </div>
+                    
+                    <div className="home-button-container">
+                        <button className="home-button" onClick={() => router.push('/')}>Home</button>
                     </div>
                 </div>
             </form>
