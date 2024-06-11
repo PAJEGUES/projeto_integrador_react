@@ -63,6 +63,11 @@ export default function Login() {
         }
     }
 
+    function handleHomeClick(event) {
+        event.preventDefault();
+        router.push('/');
+    }
+
     return (
         <div className="main-login">
             <div className="left-login">
@@ -86,7 +91,7 @@ export default function Login() {
                     </div>
                     
                     <div className="home-button-container">
-                        <button className="home-button" onClick={() => router.push('/')}>Home</button>
+                        <button className="home-button" onClick={handleHomeClick}>Home</button>
                     </div>
                 </div>
             </form>
