@@ -17,20 +17,68 @@
     flex-direction: column;
     align-items: center;
   }
-  
-  #btnRegister, #btnLocation, #btnOverview, #btnExit {
-    background-color: #007bff; 
-    color: white;
-    border: none; 
-    padding: 15px 30px;
-    margin: 10px 0; 
-    border-radius: 5px; 
-    font-size: 25px; 
-    cursor: pointer; 
-    width: 300px; 
-    text-align: center;
-    z-index: 1; 
+
+  #btnRegister{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
+  
+  #btnLocation{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #btnOverview{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #btnExit{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  
   
   #btnRegister:hover, #btnLocation:hover, #btnOverview:hover, #btnExit:hover {
     background-color: #0056b3; 
