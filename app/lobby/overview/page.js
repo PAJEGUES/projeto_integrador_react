@@ -34,11 +34,11 @@ export default function Overview() {
                 'Content-type': 'application/json'
             }
         })
-        .then(function (response) {
-            const clientesOrdenados = response.data.sort((a, b) => a.name.localeCompare(b.name));
-            setClient(clientesOrdenados);
-            setClientesFiltrados(clientesOrdenados);
-        })
+            .then(function (response) {
+                console.log(response)
+                setClient(response.data)
+                setClientesFiltrados(response.data)
+            })
     }
 
     function deleteClient(id) {
