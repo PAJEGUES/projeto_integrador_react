@@ -14,6 +14,7 @@ body * {
   height: 100vh;
   background: rgb(6, 76, 92);
   color: #f2f8f5;
+  position: relative; /* Para permitir o posicionamento absoluto do botão */
 }
 .left-login {
   width: 100%;
@@ -104,14 +105,42 @@ body * {
 }
 .btn-login {
   color: #0a0113;
-  background: #00ff88;
+  background: rgb(153, 255, 0);
+  margin-right: 10px;
 }
 .btn-back {
-  color: #fff;
-  background: #ff0000;
+  color: #0a0113;
+  background: #fbff00;
+  margin-left: 10px;
 }
 .btnInvisivel {
   display: none;
+}
+
+.home-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.home-button {
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  background-color: lightskyblue;
+  padding: 16px 20px;
+  color: #0a0113;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: rgb(0,104,133);
 }
 
 @media only screen and (max-width: 600px) {
