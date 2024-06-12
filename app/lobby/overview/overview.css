@@ -56,6 +56,7 @@ table, td, th {
 .input-name, .rua, .bairro, .dia-pagamento, .status-pagamento {
     width: 100%;
     margin-top: 20px;
+    height: 40px;
 }
 
 .sem_borda {
@@ -94,9 +95,9 @@ table, td, th {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
-    background-color: greenyellow;
+    background-color: #6610f2;
     padding: 16px 20px;
-    color: #0a0113;
+    color: white;
     border: none;
     font-size: 20px;
     font-weight: bold;
@@ -109,7 +110,7 @@ table, td, th {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
-    background-color: yellow;
+    background-color: #ffc107;
     padding: 16px 20px;
     color: #0a0113;
     border: none;
@@ -124,9 +125,9 @@ table, td, th {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
-    background-color: red;
+    background-color: #dc3545;
     padding: 16px 20px;
-    color: #0a0113;
+    color: white;
     border: none;
     font-size: 20px;
     font-weight: bold;

@@ -117,7 +117,7 @@ export default function Overview() {
                             <input
                                 className='input-name'
                                 type="text"
-                                placeholder="Nome do Cliente"
+                                placeholder="  Nome do Cliente"
                                 value={nomeFiltro}
                                 onChange={(e) => setNomeFiltro(e.target.value)}
                             />
@@ -125,21 +125,21 @@ export default function Overview() {
                             <input
                                 className='rua'
                                 type="text"
-                                placeholder="Rua"
+                                placeholder="  Rua"
                                 value={ruaFiltro}
                                 onChange={(e) => setRuaFiltro(e.target.value)}
                             />
                             <input
                                 className='bairro'
                                 type="text"
-                                placeholder="Bairro"
+                                placeholder="  Bairro"
                                 value={bairroFiltro}
                                 onChange={(e) => setBairroFiltro(e.target.value)}
                             />
                             <input
                                 className='dia-pagamento'
                                 type="number"
-                                placeholder="Dia do pagamento"
+                                placeholder="  Dia do pagamento"
                                 value={diaPagamentoFiltro}
                                 onChange={(e) => setDiaPagamentoFiltro(e.target.value)}
                             />
