@@ -34,11 +34,11 @@ export default function Overview() {
                 'Content-type': 'application/json'
             }
         })
-            .then(function (response) {
-                console.log(response)
-                setClient(response.data)
-                setClientesFiltrados(response.data)
-            })
+        .then(function (response) {
+            const clientesOrdenados = response.data.sort((a, b) => a.name.localeCompare(b.name));
+            setClient(clientesOrdenados);
+            setClientesFiltrados(clientesOrdenados);
+        })
     }
 
     function deleteClient(id) {
@@ -277,15 +277,11 @@ export default function Overview() {
 
                                 {!editando && (
                                     <>
-                                        <tr>
-                                            <td colSpan="2"><button onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan="2"><button onClick={() => deleteClient(cliente.id)}>Excluir</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan="2"><button onClick={() => setExpand(null)}>Ocultar</button></td>
-                                        </tr>
+                                        <td colSpan={2}>
+                                            <button onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button>
+                                            <button onClick={() => deleteClient(cliente.id)}>Excluir</button>
+                                            <button onClick={() => setExpand(null)}>Ocultar</button>
+                                        </td>
                                         <tr>
                                             <td className="sem_borda" colSpan="2"></td>
                                         </tr>
