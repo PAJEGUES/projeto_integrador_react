@@ -100,9 +100,9 @@ export default function RegistrationData(){
                         <label> Valor do Pagamento </label>
                         <input className="input-box" value={inputValuePayment} onChange= {(e)=> alteraInputValuePayment(e.target.value)} type="number" min="0"/>
                         <div id="button">
-                            <button type="submit"> Cadastrar </button>
-                            <button type="reset"> Limpar </button>
-                            <button type="button" onClick={()=> routerBack.push('/lobby')}> Voltar </button>
+                            <button type="submit" className="btnCadastrar"> Cadastrar </button>
+                            <button type="reset" className="btnLimpar"> Limpar </button>
+                            <button type="button" className="btnVoltar" onClick={()=> routerBack.push('/lobby')}> Voltar </button>
                         </div>
                     </form>
                 </div>
