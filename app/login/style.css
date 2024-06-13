@@ -105,12 +105,12 @@ body * {
 }
 .btn-login {
   color: #0a0113;
-  background: rgb(153, 255, 0);
+  background: #5cb85c;
   margin-right: 10px;
 }
 .btn-back {
   color: #0a0113;
-  background: #fbff00;
+  background: #ffc107;;
   margin-left: 10px;
 }
 .btnInvisivel {
