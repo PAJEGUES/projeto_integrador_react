@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import axios from "axios";
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
@@ -33,7 +33,6 @@ export default function Overview() {
             autoClose: 5000 // 5 segundos
         });
     };
-    
 
     useEffect(() => {
         getClient();
@@ -43,56 +42,60 @@ export default function Overview() {
         aplicarFiltros();
     }, [nomeFiltro, ruaFiltro, bairroFiltro, diaPagamentoFiltro]);
 
-    function getClient() {
-        axios.get("/api/get_client", {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
-            .then(function (response) {
-                console.log(response)
-                setClient(response.data)
-                setClientesFiltrados(response.data)
-            })
-    }
+    const getClient = async () => {
+        try {
+            const response = await axios.get("/api/get_client", {
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            });
+            setClient(response.data);
+            setClientesFiltrados(response.data);
+        } catch (error) {
+            console.error("Erro ao obter clientes:", error);
+        }
+    };
 
-    function deleteClient(id) {
-        if (confirm("Tem certeza que deseja excluir?") == false)
-            return;
+    const deleteClient = async (id) => {
+        if (!confirm("Tem certeza que deseja excluir?")) return;
 
-        axios.delete("/api/del_client/" + id, {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
-            .then(function (response) {
-                notificarDelete();
-                getClient()
-            })
-    }
+        try {
+            await axios.delete(`/api/del_client/${id}`, {
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            });
+            notificarDelete();
+            getClient();
+        } catch (error) {
+            console.error("Erro ao deletar cliente:", error);
+        }
+    };
 
-    function salvarClienteEditado(id) {
+    const salvarClienteEditado = async (id) => {
         const clienteEditado = clientes.find(c => c.id === id);
-        axios.put("/api/put_client/" + id, clienteEditado, {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
-            .then(function (response) {
-                notificarAlteracao();
-                getClient();
-                setEditando(false);
-                setClienteEditando(null);
-            })
-    }
+        try {
+            await axios.put(`/api/put_client/${id}`, clienteEditado, {
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            });
+            notificarAlteracao();
+            getClient();
+            setEditando(false);
+            setClienteEditando(null);
+        } catch (error) {
+            console.error("Erro ao salvar cliente editado:", error);
+        }
+    };
 
-    function cancelarEdicao() {
+    const cancelarEdicao = () => {
         setEditando(false);
         setClienteEditando(null);
         getClient();
-    }
+    };
 
-    function aplicarFiltros() {
+    const aplicarFiltros = () => {
         const clientesFiltrados = clientes.filter(cliente =>
             (nomeFiltro === "" || cliente.name.toLowerCase().includes(nomeFiltro.toLowerCase())) &&
             (ruaFiltro === "" || cliente.address.toLowerCase().includes(ruaFiltro.toLowerCase())) &&
@@ -100,15 +103,15 @@ export default function Overview() {
             (diaPagamentoFiltro === "" || cliente.dateofpayment.toString().includes(diaPagamentoFiltro))
         );
         setClientesFiltrados(clientesFiltrados);
-    }
+    };
 
-    function limparFiltros() {
+    const limparFiltros = () => {
         setNomeFiltro("");
         setRuaFiltro("");
         setBairroFiltro("");
         setDiaPagamentoFiltro("");
         setClientesFiltrados(clientes);
-    }
+    };
 
     return (
         <div id="overview-container">
@@ -116,21 +119,20 @@ export default function Overview() {
                 <h1 className="listaClientes">Lista de Clientes</h1>
                 <div className="button-group">
                     <button className="btnBack" onClick={() => routerBack.push('/lobby')}>Home</button>
-                    {filtrar === false && (
-                        <button type="button" className="btnFilters" onClick={() => setFiltrar(true)}>Filtros</button>
-                    )}
-                    {filtrar === true && (
-                        <button type="button" onClick={() => setFiltrar(false)}>Filtros</button>
+                    {filtrar ? (
+                        <button type="button" onClick={() => setFiltrar(false)}>Ocultar Filtros</button>
+                    ) : (
+                        <button type="button" className="btnFilters" onClick={() => setFiltrar(true)}>Mostrar Filtros</button>
                     )}
                 </div>
                 <br />
                 <form id='filtro'>
-                    {filtrar === true && (
+                    {filtrar && (
                         <>
                             <input
                                 className='input-name'
                                 type="text"
-                                placeholder="  Nome do Cliente"
+                                placeholder="Nome do Cliente"
                                 value={nomeFiltro}
                                 onChange={(e) => setNomeFiltro(e.target.value)}
                             />
@@ -138,21 +140,21 @@ export default function Overview() {
                             <input
                                 className='rua'
                                 type="text"
-                                placeholder="  Rua"
+                                placeholder="Rua"
                                 value={ruaFiltro}
                                 onChange={(e) => setRuaFiltro(e.target.value)}
                             />
                             <input
                                 className='bairro'
                                 type="text"
-                                placeholder="  Bairro"
+                                placeholder="Bairro"
                                 value={bairroFiltro}
                                 onChange={(e) => setBairroFiltro(e.target.value)}
                             />
                             <input
                                 className='dia-pagamento'
                                 type="number"
-                                placeholder="  Dia do pagamento"
+                                placeholder="Dia do pagamento"
                                 value={diaPagamentoFiltro}
                                 onChange={(e) => setDiaPagamentoFiltro(e.target.value)}
                             />
@@ -160,7 +162,7 @@ export default function Overview() {
                         </>
                     )}
                 </form>
-    
+
                 <table className='card'>
                     {clientesFiltrados.map(cliente => (
                         <React.Fragment key={cliente.id}>
@@ -191,7 +193,7 @@ export default function Overview() {
                                     )}
                                 </td>
                             </tr>
-    
+
                             {expandir !== cliente.id && (
                                 <>
                                     <tr>
@@ -204,7 +206,7 @@ export default function Overview() {
                                     </tr>
                                 </>
                             )}
-    
+
                             {expandir === cliente.id && (
                                 <>
                                     <tr>
@@ -291,7 +293,7 @@ export default function Overview() {
                                             )}
                                         </td>
                                     </tr>
-    
+
                                     {!editando && (
                                         <>
                                             <tr>
@@ -306,7 +308,7 @@ export default function Overview() {
                                             </tr>
                                         </>
                                     )}
-    
+
                                     {editando && clienteEditando === cliente.id && (
                                         <>
                                             <tr>
@@ -327,4 +329,3 @@ export default function Overview() {
         </div>
     );
 }
-
