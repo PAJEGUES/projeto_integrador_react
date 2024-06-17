@@ -59,23 +59,12 @@ export default function Login() {
                             "Token": hash
                         }
                     })
-<<<<<<< HEAD
-                        .then((response) => {
-                            console.log(response);
-                            alert("Usuario autenticado com sucesso!");
-                            router.push("/lobby");
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                            alert("Email ou Senha incorretos...");
-=======
                         .then(() => {
                             notificarSucesso();
                             router.push("/lobby");
                         })
                         .catch(() => {
                             notificarErro();
->>>>>>> 65e6200d3d00c41650494ce75bef1a07264acbc8
                         });
                 });
 
