@@ -1,6 +1,8 @@
 "use client"
 import axios from "axios";
 import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useEffect, useState } from 'react';
 import "./overview.css";
 
@@ -18,6 +20,27 @@ export default function Overview() {
     const [ruaFiltro, setRuaFiltro] = useState("");
     const [bairroFiltro, setBairroFiltro] = useState("");
     const [diaPagamentoFiltro, setDiaPagamentoFiltro] = useState("");
+
+    const notificarDelete = () => {
+        toast.success("Cliente deletado com sucesso!", {
+            autoClose: 5000 // 5 segundos
+        });
+    };
+
+    const notificarAlteracao = () => {
+        toast.success("Cliente alterado com sucesso!", {
+            autoClose: 5000 // 5 segundos
+        });
+    };
+    
+
+    useEffect(() => {
+        getClient();
+    }, []);
+
+    useEffect(() => {
+        aplicarFiltros();
+    }, [nomeFiltro, ruaFiltro, bairroFiltro, diaPagamentoFiltro]);
 
     function getClient() {
         axios.get("/api/get_client", {
@@ -41,7 +64,7 @@ export default function Overview() {
             }
         })
             .then(function (response) {
-                alert("Cliente deletado com sucesso!");
+                notificarDelete();
                 getClient()
             })
     }
@@ -54,7 +77,7 @@ export default function Overview() {
             }
         })
             .then(function (response) {
-                alert("Cliente editado com sucesso!");
+                notificarAlteracao();
                 getClient();
                 setEditando(false);
                 setClienteEditando(null);
@@ -291,6 +314,7 @@ export default function Overview() {
                     ))}
                 </table>
             </div>
+            <ToastContainer />
         </div>
     );
 }
