@@ -2,6 +2,8 @@
 
 import './style.css';
 import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useState } from 'react';
 import bcrypt from 'bcryptjs';
@@ -11,6 +13,18 @@ export default function Login() {
     const [senha, alteraSenha] = useState("");
 
     const router = useRouter();
+
+    const notificarSucesso = () => {
+        toast.success("Usuário autenticado com sucesso!", {
+            autoClose: 1000000000 // 5 segundos
+        });
+    };
+
+    const notificarErro = () => {
+        toast.error("Falha ao autenticar o usuário!", {
+            autoClose: 1000000000 // 5 segundos
+        });
+    };
 
     async function autenticaUsuario(evento) {
         if (evento) {
@@ -32,9 +46,8 @@ export default function Login() {
                     "Token": hash
                 }
             })
-                .then((response) => {
-                    console.log(response);
-                    alert("Usuario autenticado com sucesso!");
+                .then(() => {
+                    notificarSucesso();
                     router.push("/lobby");
                 })
                 .catch((error) => {
@@ -46,6 +59,7 @@ export default function Login() {
                             "Token": hash
                         }
                     })
+<<<<<<< HEAD
                         .then((response) => {
                             console.log(response);
                             alert("Usuario autenticado com sucesso!");
@@ -54,12 +68,20 @@ export default function Login() {
                         .catch((error) => {
                             console.error(error);
                             alert("Email ou Senha incorretos...");
+=======
+                        .then(() => {
+                            notificarSucesso();
+                            router.push("/lobby");
+                        })
+                        .catch(() => {
+                            notificarErro();
+>>>>>>> 65e6200d3d00c41650494ce75bef1a07264acbc8
                         });
                 });
 
         } catch (error) {
             console.error("Erro ao gerar o hash da senha:", error);
-            alert("Ocorreu um erro ao autenticar. Tente novamente.");
+            notificarErro();
         }
     }
 
@@ -95,6 +117,7 @@ export default function Login() {
                     </div>
                 </div>
             </form>
+            <ToastContainer />
         </div>
     );
 }

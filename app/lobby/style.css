@@ -1,13 +1,17 @@
- .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url("https://static.vecteezy.com/ti/fotos-gratis/p1/8300450-abstract-futuristic-connecting-dots-and-lines-on-dark-blue-background-digital-technology-concept-big-data-visualization-digital-dynamic-wave-of-particles-3d-illustration-gratis-foto.jpg"); /* Substitua pelo caminho da sua imagem */
+  background-size: cover; /* Faz a imagem cobrir toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+}
+
   .button-wrapper {
     background-color: white;
     padding: 20px;
