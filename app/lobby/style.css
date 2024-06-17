@@ -1,13 +1,17 @@
- .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url("https://static.vecteezy.com/ti/fotos-gratis/p1/8300450-abstract-futuristic-connecting-dots-and-lines-on-dark-blue-background-digital-technology-concept-big-data-visualization-digital-dynamic-wave-of-particles-3d-illustration-gratis-foto.jpg"); /* Substitua pelo caminho da sua imagem */
+  background-size: cover; /* Faz a imagem cobrir toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+}
+
   .button-wrapper {
     background-color: white;
     padding: 20px;
@@ -17,20 +21,68 @@
     flex-direction: column;
     align-items: center;
   }
-  
-  #btnRegister, #btnLocation, #btnOverview, #btnExit {
-    background-color: #007bff; 
-    color: white;
-    border: none; 
-    padding: 15px 30px;
-    margin: 10px 0; 
-    border-radius: 5px; 
-    font-size: 25px; 
-    cursor: pointer; 
-    width: 300px; 
-    text-align: center;
-    z-index: 1; 
+
+  #btnRegister{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
+  
+  #btnLocation{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #btnOverview{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #btnExit{
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background-color: lightskyblue;
+    padding: 16px 20px;
+    color: #0a0113;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  
   
   #btnRegister:hover, #btnLocation:hover, #btnOverview:hover, #btnExit:hover {
     background-color: #0056b3; 
