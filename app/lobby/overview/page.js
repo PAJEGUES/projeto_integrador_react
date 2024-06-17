@@ -101,18 +101,16 @@ export default function Overview() {
                 <h1 className="listaClientes">Lista de Clientes</h1>
                 <div className="button-group">
                     <button className="btnBack" onClick={() => routerBack.push('/lobby')}>Home</button>
-                    {filtrar == false &&
+                    {filtrar === false && (
                         <button type="button" className="btnFilters" onClick={() => setFiltrar(true)}>Filtros</button>
-                    }
-                    {filtrar == true &&
-                        <>
-                            <button type="button" onClick={() => setFiltrar(false)}>Filtros</button>
-                        </>
-                    }
+                    )}
+                    {filtrar === true && (
+                        <button type="button" onClick={() => setFiltrar(false)}>Filtros</button>
+                    )}
                 </div>
                 <br />
                 <form id='filtro'>
-                    {filtrar == true &&
+                    {filtrar === true && (
                         <>
                             <input
                                 className='input-name'
@@ -145,9 +143,9 @@ export default function Overview() {
                             />
                             <button type="button" onClick={limparFiltros}>Limpar Filtro</button>
                         </>
-                    }
+                    )}
                 </form>
-
+    
                 <table className='card'>
                     {clientesFiltrados.map(cliente => (
                         <React.Fragment key={cliente.id}>
@@ -178,20 +176,21 @@ export default function Overview() {
                                     )}
                                 </td>
                             </tr>
-
-                            {expandir !== cliente.id &&
+    
+                            {expandir !== cliente.id && (
                                 <>
                                     <tr>
-                                        <td colSpan="2"><button className="btnExpandir" onClick={() => setExpand(cliente.id)}>Expandir</button></td>
+                                        <td colSpan="2">
+                                            <button className="btnExpandir" onClick={() => setExpand(cliente.id)}>Expandir</button>
+                                        </td>
                                     </tr>
-
                                     <tr>
                                         <td className="sem_borda" colSpan="2"></td>
                                     </tr>
                                 </>
-                            }
-
-                            {expandir === cliente.id &&
+                            )}
+    
+                            {expandir === cliente.id && (
                                 <>
                                     <tr>
                                         <th>N°</th>
@@ -277,24 +276,22 @@ export default function Overview() {
                                             )}
                                         </td>
                                     </tr>
-
+    
                                     {!editando && (
                                         <>
                                             <tr>
-                                                <td colSpan="2"><button className="btnEditar" onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button></td>
-                                                                                            </tr>
-                                            <tr>
-                                                <td colSpan="2"><button className="btnExcluir" onClick={() => deleteClient(cliente.id)}>Excluir</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan="2"><button className="btnOcultar" onClick={() => setExpand(null)}>Ocultar</button></td>
+                                                <td colSpan="2">
+                                                    <button className="btnEditar" onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button>
+                                                    <button className="btnExcluir" onClick={() => deleteClient(cliente.id)}>Excluir</button>
+                                                    <button className="btnOcultar" onClick={() => setExpand(null)}>Ocultar</button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td className="sem_borda" colSpan="2"></td>
                                             </tr>
                                         </>
                                     )}
-
+    
                                     {editando && clienteEditando === cliente.id && (
                                         <>
                                             <tr>
@@ -306,12 +303,12 @@ export default function Overview() {
                                         </>
                                     )}
                                 </>
-                            }
+                            )}
                         </React.Fragment>
                     ))}
                 </table>
             </div>
         </div>
-    )
+    );
 }
 
