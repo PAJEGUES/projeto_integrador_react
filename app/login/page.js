@@ -18,7 +18,6 @@ export default function Login() {
         }
 
         try {
-            // Gerar o hash da senha
             const salt = await bcrypt.genSalt(10);
             const hash = await bcrypt.hash(senha, salt);
 
@@ -27,7 +26,7 @@ export default function Login() {
                 password: senha
             };
 
-            axios.post("/api/login", usuario, {
+            axios.post("/api/login_nightguard", usuario, {
                 headers: {
                     "Content-Type": "application/json",
                     "Token": hash
@@ -40,12 +39,33 @@ export default function Login() {
                 })
                 .catch((error) => {
                     console.error(error);
-                    alert("Email ou Senha incorretos...");
+                    
+                    axios.post("/api/login", usuario, {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Token": hash
+                        }
+                    })
+                        .then((response) => {
+                            console.log(response);
+                            alert("Usuario autenticado com sucesso!");
+                            router.push("/lobby");
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                            alert("Email ou Senha incorretos...");
+                        });
                 });
+
         } catch (error) {
             console.error("Erro ao gerar o hash da senha:", error);
             alert("Ocorreu um erro ao autenticar. Tente novamente.");
         }
+    }
+
+    function handleHomeClick(event) {
+        event.preventDefault();
+        router.push('/');
     }
 
     return (
@@ -68,6 +88,10 @@ export default function Login() {
                     <div className="button-group">
                         <button className="btn-login" type="submit">Login</button>
                         <button className="btn-back" type="reset"> Limpar </button>
+                    </div>
+                    
+                    <div className="home-button-container">
+                        <button className="home-button" onClick={handleHomeClick}>Home</button>
                     </div>
                 </div>
             </form>
