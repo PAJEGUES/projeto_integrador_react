@@ -15,7 +15,12 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+<<<<<<< HEAD
     "react-toastify": "^10.0.5"
+=======
+    "react-toastify": "^10.0.5",
+    "search": "^1.0.0"
+>>>>>>> b4a61208f94c4d11e3834b7807686bc96ddd574d
   },
   "devDependencies": {
     "eslint": "^8",

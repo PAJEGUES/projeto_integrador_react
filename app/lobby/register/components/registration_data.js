@@ -1,9 +1,23 @@
 'use client'
 
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import '../style.css';
+
+const notificarSucesso = () => {
+    toast.success("Cliente criado com sucesso!", {
+        autoClose: 5000 // 5 segundos
+    });
+};
+
+const notificarErro = () => {
+    toast.error("Falha ao cadastrar o cliente!", {
+        autoClose: 5000 // 5 segundos
+    });
+};
 
 export default function RegistrationData(){
 
@@ -39,7 +53,7 @@ export default function RegistrationData(){
         })
         .then(response => {
             if (response.status === 201) {
-                alert("Cadastro realizado com sucesso!");
+                notificarSucesso();
                 alteraInputName("");
                 alteraInputAdress("");
                 alteraInputNumberHouse("");
@@ -49,12 +63,11 @@ export default function RegistrationData(){
                 alteraInputDayPayment("5");
                 alteraInputValuePayment("");
             } else {
-                alert("Ocorreu um erro ao cadastrar. Por favor, tente novamente.");
+                notificarErro();
             }
         })
         .catch(error => {
             console.error('Erro ao enviar formulário:', error);
-            alert("Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.");
         });
     }
     
@@ -107,6 +120,7 @@ export default function RegistrationData(){
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
