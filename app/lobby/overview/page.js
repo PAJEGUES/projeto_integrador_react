@@ -15,7 +15,6 @@ export default function Overview() {
     const [filtrar, setFiltrar] = useState(false);
     const [expandir, setExpand] = useState(null);
     const [clientes, setClient] = useState([]);
-    const [clientesFiltrados, setClientesFiltrados] = useState([]);
 
     const [nomeFiltro, setNomeFiltro] = useState("");
     const [ruaFiltro, setRuaFiltro] = useState("");
@@ -42,19 +41,17 @@ export default function Overview() {
         aplicarFiltros();
     }, [nomeFiltro, ruaFiltro, bairroFiltro, diaPagamentoFiltro]);
 
-    const getClient = async () => {
-        try {
-            const response = await axios.get("/api/get_client", {
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            });
-            setClient(response.data);
-            setClientesFiltrados(response.data);
-        } catch (error) {
-            console.error("Erro ao obter clientes:", error);
-        }
-    };
+    function getClient() {
+        axios.get("/api/get_client", {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+            .then(function (response) {
+                console.log(response)
+                setClient(response.data)
+            })
+    }
 
     const deleteClient = async (id) => {
         if (!confirm("Tem certeza que deseja excluir?")) return;
@@ -95,23 +92,16 @@ export default function Overview() {
         getClient();
     };
 
-    const aplicarFiltros = () => {
-        const clientesFiltrados = clientes.filter(cliente =>
-            (nomeFiltro === "" || cliente.name.toLowerCase().includes(nomeFiltro.toLowerCase())) &&
-            (ruaFiltro === "" || cliente.address.toLowerCase().includes(ruaFiltro.toLowerCase())) &&
-            (bairroFiltro === "" || cliente.neighborhood.toLowerCase().includes(bairroFiltro.toLowerCase())) &&
-            (diaPagamentoFiltro === "" || cliente.dateofpayment.toString().includes(diaPagamentoFiltro))
-        );
-        setClientesFiltrados(clientesFiltrados);
-    };
+    useEffect(() => {
+        getClient();
+    }, []);
 
-    const limparFiltros = () => {
-        setNomeFiltro("");
-        setRuaFiltro("");
-        setBairroFiltro("");
-        setDiaPagamentoFiltro("");
-        setClientesFiltrados(clientes);
-    };
+    const clientesFiltrados = clientes.filter(cliente =>
+        (nomeFiltro === "" || cliente.name.toLowerCase().includes(nomeFiltro.toLowerCase())) &&
+        (ruaFiltro === "" || cliente.address.toLowerCase().includes(ruaFiltro.toLowerCase())) &&
+        (bairroFiltro === "" || cliente.neighborhood.toLowerCase().includes(bairroFiltro.toLowerCase())) &&
+        (diaPagamentoFiltro === "" || cliente.dateofpayment.toString().includes(diaPagamentoFiltro))
+    );
 
     return (
         <div id="overview-container">
