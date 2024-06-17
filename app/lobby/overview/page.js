@@ -15,7 +15,6 @@ export default function Overview() {
     const [filtrar, setFiltrar] = useState(false);
     const [expandir, setExpand] = useState(null);
     const [clientes, setClient] = useState([]);
-    const [clientesFiltrados, setClientesFiltrados] = useState([]);
 
     const [nomeFiltro, setNomeFiltro] = useState("");
     const [ruaFiltro, setRuaFiltro] = useState("");
@@ -52,7 +51,6 @@ export default function Overview() {
             .then(function (response) {
                 console.log(response)
                 setClient(response.data)
-                setClientesFiltrados(response.data)
             })
     }
 
@@ -92,23 +90,16 @@ export default function Overview() {
         getClient();
     }
 
-    function aplicarFiltros() {
-        const clientesFiltrados = clientes.filter(cliente =>
-            (nomeFiltro === "" || cliente.name.toLowerCase().includes(nomeFiltro.toLowerCase())) &&
-            (ruaFiltro === "" || cliente.address.toLowerCase().includes(ruaFiltro.toLowerCase())) &&
-            (bairroFiltro === "" || cliente.neighborhood.toLowerCase().includes(bairroFiltro.toLowerCase())) &&
-            (diaPagamentoFiltro === "" || cliente.dateofpayment.toString().includes(diaPagamentoFiltro))
-        );
-        setClientesFiltrados(clientesFiltrados);
-    }
+    useEffect(() => {
+        getClient();
+    }, []);
 
-    function limparFiltros() {
-        setNomeFiltro("");
-        setRuaFiltro("");
-        setBairroFiltro("");
-        setDiaPagamentoFiltro("");
-        setClientesFiltrados(clientes);
-    }
+    const clientesFiltrados = clientes.filter(cliente =>
+        (nomeFiltro === "" || cliente.name.toLowerCase().includes(nomeFiltro.toLowerCase())) &&
+        (ruaFiltro === "" || cliente.address.toLowerCase().includes(ruaFiltro.toLowerCase())) &&
+        (bairroFiltro === "" || cliente.neighborhood.toLowerCase().includes(bairroFiltro.toLowerCase())) &&
+        (diaPagamentoFiltro === "" || cliente.dateofpayment.toString().includes(diaPagamentoFiltro))
+    );
 
     return (
         <div id="overview-container">
