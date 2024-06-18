@@ -46,10 +46,6 @@
   flex-direction: column;
 }
 
-#registration-container #button button:hover {
-  background-color: #0056b3;
-}
-
 @media only screen and (max-width: 600px) {
   #registration-container #form-container {
     margin-top: 20px;

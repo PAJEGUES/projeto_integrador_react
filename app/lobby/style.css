@@ -82,9 +82,3 @@
     transition: background-color 0.3s ease;
   }
   
-  
-  
-  #btnRegister:hover, #btnLocation:hover, #btnOverview:hover, #btnExit:hover {
-    background-color: #0056b3; 
-  }
-  
