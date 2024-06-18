@@ -142,16 +142,12 @@ export default function Overview() {
                 </form>
 
                 <table className='card'>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Rua</th>
-                        </tr>
-                    </thead>
+                    
                     <tbody>
                         {clientesFiltrados.map(cliente => (
                             <React.Fragment key={cliente.id}>
                                 <tr>
+                                    <th>Nome</th>
                                     <td colSpan={2}>
                                         {editando && clienteEditando === cliente.id ? (
                                             <input
