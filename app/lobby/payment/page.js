@@ -1,6 +1,8 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useRouter } from 'next/navigation';
+import "./payment.css"
 
 export default function Overview() {
     const routerBack = useRouter();
@@ -8,7 +10,8 @@ export default function Overview() {
     const [clientes, setClientes] = useState([]);
     const [ruaSelecionada, setRuaSelecionada] = useState('');
     const [ordenarCrescente, setOrdenarCrescente] = useState(true);
-    const [diaPagamentoSelecionado, setDiaPagamentoSelecionado] = useState(new Date().getDate().toString());
+    const hoje = new Date().getDate().toString();
+    const [diaAtual, setDiaAtual] = useState(hoje);
 
     function getClient() {
         axios.get("/api/get_client", {
@@ -31,32 +34,31 @@ export default function Overview() {
     // Filter clients based on selected street and selected payment day
     const clientesFiltrados = clientes.filter(cliente => {
         const matchRua = ruaSelecionada === '' || cliente.address === ruaSelecionada;
-        const matchData = cliente.dateofpayment === diaAtual;
+        const matchData = cliente.dateofpayment.toString() === diaAtual;
         const matchPagamento = !cliente.pagamentoConfirmado;
         return matchRua && matchData && matchPagamento;
     });
 
-     // Sort clients by house number
-     clientesFiltrados.sort((a, b) => 
-     ordenarCrescente ? a.housenumber - b.housenumber : b.housenumber - a.housenumber
- );
+    // Sort clients by house number
+    clientesFiltrados.sort((a, b) => 
+        ordenarCrescente ? a.housenumber - b.housenumber : b.housenumber - a.housenumber
+    );
 
- // Handle payment confirmation
- function confirmarPagamento(id) {
-     const novosClientes = clientes.map(cliente => 
-         cliente.id === id ? { ...cliente, pagamentoConfirmado: true } : cliente
-     );
-     setClientes(novosClientes);
- }
+    // Handle payment confirmation
+    function confirmarPagamento(id) {
+        const novosClientes = clientes.map(cliente => 
+            cliente.id === id ? { ...cliente, pagamentoConfirmado: true } : cliente
+        );
+        setClientes(novosClientes);
+    }
 
- // Handle new month (reset payment confirmations)
- function resetPagamentos() {
-     const novosClientes = clientes.map(cliente => 
-         ({ ...cliente, pagamentoConfirmado: false })
-     );
-     setClientes(novosClientes);
- }
-
+    // Handle new month (reset payment confirmations)
+    function resetPagamentos() {
+        const novosClientes = clientes.map(cliente => 
+            ({ ...cliente, pagamentoConfirmado: false })
+        );
+        setClientes(novosClientes);
+    }
 
     return (
         <div id="overview">
@@ -104,30 +106,34 @@ export default function Overview() {
             </div>
 
             <table className='card'>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Rua</th>
-                        <th>N°</th>
-                        <th>Valor do pagamento</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
                     {clientesFiltrados.map(cliente => (
-                        <tr key={cliente.id}>
-                            <td>{cliente.name}</td>
-                            <td>{cliente.address}</td>
-                            <td>{cliente.housenumber}</td>
-                            <td>{cliente.paymentamount}</td>
-                            <td>
-                                <button type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar pagamento</button>
-                                <button type="button">Enviar comprovante</button>
-                                <button type="button">Imprimir comprovante</button>
-                            </td>
-                        </tr>
+                        <thead key={cliente.id}>
+                            <tr>
+                                <th>Nome</th>
+                                    <td>{cliente.name}</td>
+                            </tr>
+                            <tr>
+                                <th>Rua</th>
+                                    <td>{cliente.address}</td>
+                            </tr>
+                            <tr>
+                                <th>N°</th>
+                                    <td>{cliente.housenumber}</td>
+                            </tr>
+                            <tr>
+                                <th>Valor do pagamento</th>
+                                    <td>{cliente.paymentamount}</td>
+                            </tr>
+                            <tr>
+                                <td colSpan={2}>
+                                    <button type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar pagamento</button>
+                                    <button type="button">Enviar comprovante</button>
+                                    <button type="button">Imprimir comprovante</button>
+                                </td>
+                            </tr>
+                        </thead>
                     ))}
-                </tbody>
+            
             </table>
 
             {clientesFiltrados.length === 0 && (
