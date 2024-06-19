@@ -5,7 +5,7 @@ import React, { useState,useEffect } from 'react';
 import Search from "./search";
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
- 
+import "../payment/page"
 export default function Maps(){
  
     const [cliente, alteraCliente] = useState ({});
@@ -47,7 +47,7 @@ export default function Maps(){
     function buscaEndereco (){
  
         axios
-            .get("/api/get_client/16")
+            .get("/api/get_client/" + cliente.id)
             .then(response =>{
                 const client = response.data;
                 const endereco =  `${client.address} ${client.housenumber}, Sao Carlos, Sao Paulo, Brasil`.split(" ").join("+");

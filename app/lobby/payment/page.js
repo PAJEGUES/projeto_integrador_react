@@ -129,6 +129,8 @@ export default function Overview() {
                                     <button type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar pagamento</button>
                                     <button type="button">Enviar comprovante</button>
                                     <button type="button">Imprimir comprovante</button>
+                                    <button type="button">Ver no mapa</button>
+
                                 </td>
                             </tr>
                         </thead>
