@@ -84,7 +84,7 @@ export default function Overview() {
                     type="button" 
                     onClick={() => setOrdenarCrescente(!ordenarCrescente)}
                 >
-                    Ordenar por Número ({ordenarCrescente ? "Crescente" : "Decrescente"})
+                    Ordenar Número ({ordenarCrescente ? "Crescente" : "Decrescente"})
                 </button>
 
                 <label htmlFor="dia-pagamento">Selecione o dia de pagamento:</label>
