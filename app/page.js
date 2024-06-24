@@ -54,6 +54,9 @@ export default function Marketing() {
                     <div className="logo">Safe<span>House.</span></div>
                 </div>
                 <ul className="nav__list">
+                <a href="http://10.60.46.26:8081/wordpress/" target='_blank'>
+                        <button className="btn btn-2" >Blog</button>
+                    </a>
                     <button className="btn btn-1" onClick={() => router.push('/login')}>Login</button>
                 </ul>
             </nav>
