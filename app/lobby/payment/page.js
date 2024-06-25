@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useRouter } from 'next/navigation';
+import Maps from '../maps/page'
 import "./payment.css"
+import Link from 'next/link';
 
 export default function Overview() {
     const routerBack = useRouter();
@@ -12,7 +14,8 @@ export default function Overview() {
     const [ordenarCrescente, setOrdenarCrescente] = useState(true);
     const hoje = new Date().getDate().toString();
     const [diaAtual, setDiaAtual] = useState(hoje);
-
+    const [clienteSelecionando, setClienteSelecionado] = useState(null);
+    const [modalAberto, setModalAberto] = useState(false);
     function getClient() {
         axios.get("/api/get_client", {
             headers: {
@@ -58,6 +61,16 @@ export default function Overview() {
             ({ ...cliente, pagamentoConfirmado: false })
         );
         setClientes(novosClientes);
+    }
+
+    function fecharModal(){
+        setModalAberto(false);
+        setClienteSelecionado(null);
+    }
+
+    function abriModal(cliente){
+        setClienteSelecionado(cliente);
+        setModalAberto(true);
     }
 
     return (
@@ -129,18 +142,36 @@ export default function Overview() {
                                     <button type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar pagamento</button>
                                     <button type="button">Enviar comprovante</button>
                                     <button type="button">Imprimir comprovante</button>
-                                    <button type="button">Ver no mapa</button>
+                                    <button type="button" onClick={() => abriModal(cliente)}>Ver no mapa</button>
 
                                 </td>
                             </tr>
+                            <td>
+                             
+                            </td>
                         </thead>
                     ))}
+
+               
             
             </table>
+                {clienteSelecionando &&(
+                 <div className='modal'>
+                    <div className="fade" onClick={()=> fecharModal()} ></div>
+                    <div className="mapa">
+                        <div className='mapaModal'>
+                            <button onClick={()=> fecharModal()} >X</button>
+                            <Maps cliente={clienteSelecionando}/>
+                        </div>
+                    </div>
+                     
+                 </div>
+                )}
 
             {clientesFiltrados.length === 0 && (
                 <p>Nenhum cliente encontrado para a rua selecionada e o dia de pagamento atual.</p>
             )}
+           
         </div>
     );
 }
