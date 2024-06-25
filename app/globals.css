@@ -103,12 +103,15 @@ nav {
 .btn-1 {
   background-color: lightskyblue;
   padding: 10px 20px;
+  margin: 20px;
   border-radius: 100px;
 }
 
 .btn-2, .btn-3 {
   background-color: lightskyblue;
   padding: 10px 20px;
+  border-radius: 100px;
+  margin: 5px;
 }
 
 .btn:hover {
