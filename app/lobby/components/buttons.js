@@ -10,7 +10,7 @@ export default function Buttons(){
         <div className="button-container">
             <div className="button-wrapper">
                 <button id="btnRegister" onClick={()=> router.push('/lobby/register')}> Cadastrar </button>
-                <button id="btnLocation" onClick={()=> router.push('/lobby/maps')}> Mapa </button>
+                <button id="btnLocation" onClick={()=> router.push('/lobby/payment')}> Pagamento </button>
                 <button id="btnOverview" onClick={()=> router.push('/lobby/overview')}> Visão Geral </button>
                 <button id="btnExit" onClick={()=> router.push('/login')}> Sair </button>
             </div>
