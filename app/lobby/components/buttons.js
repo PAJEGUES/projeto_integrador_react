@@ -62,31 +62,12 @@ export default function Buttons() {
     }
 
     return(
-        <div>
-            
-            <div className="button-container">
-                <div className="dashboard-item">
-                    <h2>Valor Total de Recebimento</h2>
-                    <p>{totalRecebimento} R$</p>
-                </div>
-                <div className="dashboard-item">
-                    <h2>Clientes em Atraso</h2>
-                    <p>{clientesEmAtraso}</p>
-                </div>
-                <div className="dashboard-item">
-                    <h2>Novos Clientes no Último Mês</h2>
-                    <p>{novosClientes}</p>
-                </div>
-                <div className="dashboard-item">
-                    <h2>Clientes que Desistiram no Último Mês</h2>
-                    <p>{clientesDesistentes}</p>
-                </div>
-                <div className="button-wrapper">
-                    <button id="btnRegister" onClick={()=> router.push('/lobby/register')}>Cadastrar</button>
-                    <button id="btnLocation" onClick={()=> router.push('/lobby/maps')}>Mapa</button>
-                    <button id="btnOverview" onClick={()=> router.push('/lobby/overview')}>Visão Geral</button>
-                    <button id="btnExit" onClick={()=> router.push('/login')}>Sair</button>
-                </div>
+        <div className="button-container">
+            <div className="button-wrapper">
+                <button id="btnRegister" onClick={()=> router.push('/lobby/register')}> Cadastrar </button>
+                <button id="btnLocation" onClick={()=> router.push('/lobby/payment')}> Pagamento </button>
+                <button id="btnOverview" onClick={()=> router.push('/lobby/overview')}> Visão Geral </button>
+                <button id="btnExit" onClick={()=> router.push('/login')}> Sair </button>
             </div>
         </div>
     );
