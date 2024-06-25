@@ -81,4 +81,31 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+  .button-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.dashboard-container {
+    padding: 20px;
+}
+
+.dashboard-item {
+    border-radius: 10px;
+    background: white;
+    size: 200px;
+    
+}
+
   
