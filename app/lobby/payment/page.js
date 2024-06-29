@@ -37,9 +37,16 @@ export default function Overview() {
 
     // Filter clients based on selected street and selected payment day
     const clientesFiltrados = clientes.filter(cliente => {
+        const today = new Date();
+        const isAtrasado = new Date(cliente.dateofpayment) < today && !cliente.pagamentoConfirmado;
         const matchRua = ruaSelecionada === '' || cliente.address === ruaSelecionada;
         const matchData = cliente.dateofpayment.toString() === diaAtual;
         const matchPagamento = !cliente.pagamentoConfirmado;
+        
+        if (ruaSelecionada === 'Clientes em atraso') {
+            return isAtrasado;
+        }
+
         return matchRua && matchData && matchPagamento;
     });
 
@@ -81,101 +88,95 @@ export default function Overview() {
 
     return (
         <div id="overview">
-            <h1>Lista de Clientes</h1>
-            <button className="btnBack" onClick={() => router.push('/lobby')}>Voltar</button>
+            <h1>Pagamento</h1>
+            
+            <div className="top-buttons">
+                <button className="btnBack" onClick={() => router.push('/lobby')}>Voltar</button>
+                <button className="btnFilters" type="button" onClick={resetPagamentos}>Novo Mês</button>
+                <button className="btnNumero" type="button" onClick={() => setOrdenarCrescente(!ordenarCrescente)}>
+                    Número {ordenarCrescente ? '▲' : '▼'}
+                </button>
+            </div>
 
-            <br />
-
-            <div>
-                <label htmlFor="listbox-ruas">Selecione a rua:</label>
-                <select
-                    id="listbox-ruas"
-                    value={ruaSelecionada}
-                    onChange={(e) => setRuaSelecionada(e.target.value)}
-                >
-                    <option value="">Todas as ruas</option>
+            <div className="select-filters">
+                <select className="rua" value={ruaSelecionada} onChange={(e) => setRuaSelecionada(e.target.value)}>
+                    <option value="">Todas as Ruas</option>
+                    <option value="Clientes em atraso">Clientes em atraso</option>
                     {ruas.map((rua, index) => (
                         <option key={index} value={rua}>{rua}</option>
                     ))}
                 </select>
-
-                <button
-                    type="button"
-                    onClick={() => setOrdenarCrescente(!ordenarCrescente)}
-                >
-                    Ordenar Número ({ordenarCrescente ? "Crescente" : "Decrescente"})
-                </button>
-
-                <label htmlFor="dia-pagamento">Selecione o dia de pagamento:</label>
-                <input
-                    type="number"
-                    id="dia-pagamento"
-                    value={diaAtual}
-                    onChange={(e) => setDiaAtual(e.target.value)}
-                    min="1"
-                    max="31"
-                />
-
-                <button
-                    type="button"
-                    onClick={resetPagamentos}
-                >
-                    Novo Mês
-                </button>
             </div>
 
-            <table className='card'>
-                {clientesFiltrados.map(cliente => (
-                    <thead key={cliente.id}>
-                        <tr>
-                            <th>Nome</th>
-                            <td>{cliente.name}</td>
-                        </tr>
-                        <tr>
-                            <th>Rua</th>
-                            <td>{cliente.address}</td>
-                        </tr>
-                        <tr>
-                            <th>N°</th>
-                            <td>{cliente.housenumber}</td>
-                        </tr>
-                        <tr>
-                            <th>Bairro</th>
-                            <td>{cliente.neighborhood}</td>
-                        </tr>
-                        <tr>
-                            <th>Telefone</th>
-                            <td>{cliente.telephone}</td>
-                        </tr>
-                        <tr>
-                            <th>Valor do pagamento</th>
-                            <td>{cliente.paymentamount}</td>
-                        </tr>
-                        <tr>
-                            <td colSpan={2}>
-                                <button type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar pagamento</button>
-                                <button type="button" onClick={() => abrirComprovante(cliente)}>Comprovante</button>
-                                <button type="button" onClick={() => abriModal(cliente)}>Ver no mapa</button>
-                            </td>
-                        </tr>
-                    </thead>
-                ))}
-            </table>
+            <div className="inline-filters">
+                <div>
+                    <label htmlFor="dia-pagamento">Dia: </label>
+                    <input
+                        type="number"
+                        id="dia-pagamento"
+                        value={diaAtual}
+                        onChange={(e) => setDiaAtual(e.target.value)}
+                        min="1"
+                        max="31"
+                    />
+                </div>
+            </div>
 
-            {clienteSelecionando && (
-                <div className='modal'>
-                    <div className="fade" onClick={() => fecharModal()}></div>
-                    <div className="mapa">
-                        <div className='mapaModal'>
-                            <button onClick={() => fecharModal()}>X</button>
-                            <Maps cliente={clienteSelecionando} />
+            <div className="listaClientes">
+                {clientesFiltrados.map(cliente => (
+                    <div key={cliente.id} className="card">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>{cliente.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Endereço:</td>
+                                    <td>{cliente.address}</td>
+                                </tr>
+                                <tr>
+                                    <td>Numero da Casa:</td>
+                                    <td>{cliente.housenumber}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bairro:</td>
+                                    <td>{cliente.neighborhood}</td>
+                                </tr>
+                                <tr>
+                                    <td>Telefone:</td>
+                                    <td>{cliente.phone}</td>
+                                </tr>
+                                <tr>
+                                    <td>Telefone:</td>
+                                    <td>{cliente.telephone}</td>
+                                </tr>
+                                <tr>
+                                    <td>Valor do Pagamento:</td>
+                                    <td>R${cliente.paymentamount}</td>
+                                </tr>
+                                <tr>
+                                    <td>Data de Pagamento:</td>
+                                    <td>{cliente.dateofpayment}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div className="button-group">
+                            <button className="btnConfirmar" type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar Pagamento</button>
+                            <button className="btnComprovante" type="button" onClick={() => abrirComprovante(cliente)}>Comprovante</button>
+                            <button className="btnMapa" type="button" onClick={() => abriModal(cliente)}>Mapa</button>
                         </div>
                     </div>
-                </div>
-            )}
+                ))}
+            </div>
 
-            {clientesFiltrados.length === 0 && (
-                <p>Nenhum cliente encontrado para a rua selecionada e o dia de pagamento atual.</p>
+            {modalAberto && (
+                <div className="modal">
+                    <div className="mapaModal">
+                        <button onClick={fecharModal}>X</button>
+                        <Maps cliente={clienteSelecionando}/>
+                    </div>
+                </div>
             )}
         </div>
     );

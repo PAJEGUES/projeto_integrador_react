@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation'
 import "../style.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Importação do Font Awesome
 
 export default function Buttons() {
     
@@ -62,26 +63,28 @@ export default function Buttons() {
     }
 
     return(
-        <div>
+        
             <div className="dashboard-container">
                 <div className="dashboard-item">
-                    <h2>Valor Total de Recebimento</h2>
+                    <i className="fas fa-money-bill-wave"></i>
+                    <h2>Renda Mensal</h2>
                     <p>{totalRecebimento} R$</p>
                 </div>
                 <div className="dashboard-item">
+                    <i className="fas fa-exclamation-circle"></i>
                     <h2>Clientes em Atraso</h2>
                     <p>{clientesEmAtraso}</p>
                 </div>
                 <div className="dashboard-item">
-                    <h2>Novos Clientes no Último Mês</h2>
+                    <i className="fas fa-user-plus"></i>
+                    <h2>Novos Clientes</h2>
                     <p>{novosClientes}</p>
                 </div>
                 <div className="dashboard-item">
-                    <h2>Clientes que Desistiram no Último Mês</h2>
+                    <i className="fas fa-user-times"></i>
+                    <h2>Clientes Desistentes</h2>
                     <p>{clientesDesistentes}</p>
                 </div>
-            </div>
-            <div className="button-container">
                 <div className="button-wrapper">
                     <button id="btnRegister" onClick={()=> router.push('/lobby/register')}>Cadastrar</button>
                     <button id="btnLocation" onClick={()=> router.push('/lobby/payment')}>Pagamento</button>
@@ -89,6 +92,5 @@ export default function Buttons() {
                     <button id="btnExit" onClick={()=> router.push('/login')}>Sair</button>
                 </div>
             </div>
-        </div>
     );
 }
