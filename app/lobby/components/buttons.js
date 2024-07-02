@@ -76,11 +76,7 @@ export default function Buttons() {
                     <h2>Renda Mensal</h2>
                     <p>{totalRecebimento} R$</p>
                 </div>
-                <div className="dashboard-item">
-                    <i className="fas fa-exclamation-circle"></i>
-                    <h2>Clientes em Atraso</h2>
-                    <p>{clientesEmAtraso}</p>
-                </div>
+                
                 <div className="dashboard-item">
                     <i className="fas fa-user-plus"></i>
                     <h2>Novos Clientes</h2>
