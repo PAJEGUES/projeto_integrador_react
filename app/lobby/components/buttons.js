@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import "../style.css";
+import "./buttons.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Importação do Font Awesome
@@ -63,8 +63,14 @@ export default function Buttons() {
     }
 
     return(
-        
-            <div className="dashboard-container">
+        <div className="dashboard-container">
+            <div className="button-wrapper">
+                <button id="btnRegister" onClick={()=> router.push('/lobby/register')}>Cadastrar</button>
+                <button id="btnLocation" onClick={()=> router.push('/lobby/payment')}>Pagamento</button>
+                <button id="btnOverview" onClick={()=> router.push('/lobby/overview')}>Visão Geral</button>
+                <button id="btnExit" onClick={()=> router.push('/login')}>Sair</button>
+            </div>
+            <div className="dashboard-items-container">
                 <div className="dashboard-item">
                     <i className="fas fa-money-bill-wave"></i>
                     <h2>Renda Mensal</h2>
@@ -85,12 +91,7 @@ export default function Buttons() {
                     <h2>Clientes Desistentes</h2>
                     <p>{clientesDesistentes}</p>
                 </div>
-                <div className="button-wrapper">
-                    <button id="btnRegister" onClick={()=> router.push('/lobby/register')}>Cadastrar</button>
-                    <button id="btnLocation" onClick={()=> router.push('/lobby/payment')}>Pagamento</button>
-                    <button id="btnOverview" onClick={()=> router.push('/lobby/overview')}>Visão Geral</button>
-                    <button id="btnExit" onClick={()=> router.push('/login')}>Sair</button>
-                </div>
             </div>
+        </div>
     );
 }

@@ -2,165 +2,144 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: inherit; /* Mantém a cor de fundo da página */
-}
- 
-#overview {
-    background-color: white; /* Define o fundo branco para o componente centralizado */
+    flex-direction: column;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+#overview {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Largura ajustável conforme necessário */
-    max-width: 800px; /* Limita a largura máxima */
 }
- 
-#overview h1 {
-    color: black; /* Altera a cor do texto do título para preto para melhor contraste */
-}
- 
-table, td, th {
-    color: black; /* Altera a cor do texto da tabela para preto para melhor contraste */
-    font-weight: bold;
-    border-collapse: collapse;
-    border: 3px solid;
-}
- 
-.card {
-    font-size: 22px;
-    color: black; /* Altera a cor do texto da tabela para preto para melhor contraste */
-    border-radius: 20px;
-    border-collapse: collapse;
-    width: 100%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: left;
-}
- 
-.listaClientes {
+
+h1 {
     text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
- 
-#filtro {
-    text-align: left;
-    margin: auto;
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
- 
-#botao_expandir {
-    display: flex;
-    justify-content: right;
-    width: 30px;
-}
- 
-.input-name, .rua, .bairro, .dia-pagamento, .status-pagamento {
+
+.btnBack, .btnFilters, .btnExpandir, .btnEditar, .btnExcluir, .btnOcultar, .btnCancelar {
+    margin-bottom: 10px;
     width: 100%;
-    margin-top: 20px;
-    height: 40px;
 }
- 
-.sem_borda {
-    border-left-color: transparent;
-    border-right-color: transparent;
-    padding-bottom: 50px;
-}
- 
-.button-group {
-    display: flex;
-    gap: 10px; /* Adiciona espaço entre os botões */
-    margin-bottom: 20px; /* Adiciona um pouco de margem inferior para separar do restante do conteúdo */
-}
- 
-.btnBack, .button-group button[type="button"] {
-    display: inline-block; /* Certifique-se de que ambos os botões se comportem como elementos inline-block */
-}
- 
+
 .btnBack {
-        border-radius: 100px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-weight: 800;
-        background-color: lightskyblue;
-        padding: 16px 20px;
-        color: #0a0113;
-        border: none;
-        font-size: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: white;
 }
- 
+
+.btnBack:hover {
+    background-color: #0056b3;
+}
+
 .btnFilters {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: #6610f2;
-    padding: 16px 20px;
+    background-color: #28a745;
     color: white;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
- 
+
+.btnFilters:hover {
+    background-color: #218838;
+}
+
+.btnExpandir, .btnOcultar {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btnExpandir:hover, .btnOcultar:hover {
+    background-color: #117a8b;
+}
+
 .btnEditar {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
     background-color: #ffc107;
-    padding: 16px 20px;
-    color: #0a0113;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: black;
 }
- 
+
+.btnEditar:hover {
+    background-color: #e0a800;
+}
+
 .btnExcluir {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
     background-color: #dc3545;
-    padding: 16px 20px;
     color: white;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
- 
-.btnOcultar{
-        border-radius: 100px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-weight: 800;
-        background-color: lightskyblue;
-        padding: 16px 20px;
-        color: #0a0113;
-        border: none;
-        font-size: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+
+.btnExcluir:hover {
+    background-color: #c82333;
 }
- 
-.btnExpandir{
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: lightskyblue;
-    padding: 16px 20px;
-    color: #0a0113;
+
+.btnCancelar {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btnCancelar:hover {
+    background-color: #5a6268;
+}
+
+form#filtro {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+form#filtro input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+table.card {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table.card th, table.card td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table.card th {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+table.card tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.card tr:hover {
+    background-color: #ddd;
+}
+
+table.card .sem_borda {
     border: none;
-    font-size: 20px;
+}
+
+.Toastify__toast {
+    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+}
+
+.Toastify__toast--success {
+    background-color: #28a745;
+    color: white;
 }

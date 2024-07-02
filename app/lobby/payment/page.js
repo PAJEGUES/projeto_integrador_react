@@ -17,6 +17,11 @@ export default function Overview() {
     const [clienteSelecionando, setClienteSelecionado] = useState(null);
     const [modalAberto, setModalAberto] = useState(false);
 
+    useEffect(() => {
+        getClient();
+        loadConfirmedPayments();
+    }, []);
+
     function getClient() {
         axios.get('/api/get_client', {
             headers: {
@@ -28,9 +33,14 @@ export default function Overview() {
         });
     }
 
-    useEffect(() => {
-        getClient();
-    }, []);
+    function loadConfirmedPayments() {
+        const confirmedPayments = JSON.parse(localStorage.getItem('confirmedPayments')) || [];
+        const novosClientes = clientes.map(cliente => ({
+            ...cliente,
+            pagamentoConfirmado: confirmedPayments.includes(cliente.id)
+        }));
+        setClientes(novosClientes);
+    }
 
     // Get unique streets
     const ruas = [...new Set(clientes.map(cliente => cliente.address))];
@@ -42,7 +52,7 @@ export default function Overview() {
         const matchRua = ruaSelecionada === '' || cliente.address === ruaSelecionada;
         const matchData = cliente.dateofpayment.toString() === diaAtual;
         const matchPagamento = !cliente.pagamentoConfirmado;
-        
+
         if (ruaSelecionada === 'Clientes em atraso') {
             return isAtrasado;
         }
@@ -61,6 +71,7 @@ export default function Overview() {
             cliente.id === id ? { ...cliente, pagamentoConfirmado: true } : cliente
         );
         setClientes(novosClientes);
+        
     }
 
     // Handle new month (reset payment confirmations)
@@ -69,6 +80,9 @@ export default function Overview() {
             ({ ...cliente, pagamentoConfirmado: false })
         );
         setClientes(novosClientes);
+
+        // Clear local storage
+        localStorage.removeItem('confirmedPayments');
     }
 
     function fecharModal(){
@@ -125,7 +139,7 @@ export default function Overview() {
             <div className="listaClientes">
                 {clientesFiltrados.map(cliente => (
                     <div key={cliente.id} className="card">
-                        <table>
+                        <table className='card'>
                             <tbody>
                                 <tr>
                                     <td>Nome:</td>
@@ -145,10 +159,6 @@ export default function Overview() {
                                 </tr>
                                 <tr>
                                     <td>Telefone:</td>
-                                    <td>{cliente.phone}</td>
-                                </tr>
-                                <tr>
-                                    <td>Telefone:</td>
                                     <td>{cliente.telephone}</td>
                                 </tr>
                                 <tr>
@@ -161,10 +171,17 @@ export default function Overview() {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className="button-group">
-                            <button className="btnConfirmar" type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar Pagamento</button>
-                            <button className="btnComprovante" type="button" onClick={() => abrirComprovante(cliente)}>Comprovante</button>
-                            <button className="btnMapa" type="button" onClick={() => abriModal(cliente)}>Mapa</button>
+                        <div>
+                            <tr className="button-group">
+                                <td colSpan={2}>
+                                    <button className="btnConfirmar" type="button" onClick={() => confirmarPagamento(cliente.id)}>Confirmar Pagamento</button>
+                                    <button className="btnComprovante" type="button" onClick={() => abrirComprovante(cliente)}>Comprovante</button>
+                                    <button className="btnMapa" type="button" onClick={() => abriModal(cliente)}>Mapa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="sem_borda"></td>
+                            </tr>
                         </div>
                     </div>
                 ))}

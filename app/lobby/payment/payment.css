@@ -1,190 +1,180 @@
-/* payment.css */
-
-/* Estilo para o container principal */
-#overview-container {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: inherit; /* Mantém a cor de fundo da página */
 }
 
-/* Estilo para o componente principal */
 #overview {
-    background-color: white; /* Define o fundo branco para o componente centralizado */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Largura ajustável conforme necessário */
-    max-width: 800px; /* Limita a largura máxima */
-}
-
-/* Estilo para o título */
-#overview h1 {
-    color: black; /* Altera a cor do texto do título para preto para melhor contraste */
-}
-
-/* Estilo para a tabela e células */
-table, td, th {
-    color: black; /* Altera a cor do texto da tabela para preto para melhor contraste */
-    font-weight: bold;
-    border-collapse: collapse;
-    border: 3px solid;
-}
-
-/* Estilo para os cartões de clientes */
-.card {
-    font-size: 22px;
-    color: black; /* Altera a cor do texto da tabela para preto para melhor contraste */
-    border-radius: 20px;
-    border-collapse: collapse;
     width: 100%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: left;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Estilo para a lista de clientes */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.top-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.btnBack {
+    background-color: #17a2b8;
+}
+
+.btnBack:hover {
+    background-color: #117a8b;
+}
+
+.btnFilters {
+    background-color: #28a745;
+}
+
+.btnFilters:hover {
+    background-color: #218838;
+}
+
+.btnNumero {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btnNumero:hover {
+    background-color: #e0a800;
+}
+
+.select-filters {
+    margin-bottom: 20px;
+}
+
+.select-filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.inline-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.inline-filters div {
+    margin-right: 10px;
+}
+
+.inline-filters label {
+    font-size: 16px;
+}
+
+.inline-filters input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 60px;
+}
+
 .listaClientes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.card .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card .button-group button {
+    
+    justify-content: space-between;
+    flex: 1;
+    margin-right: 65px;
+    
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
     text-align: center;
 }
 
-/* Estilo para o filtro */
-#filtro {
-    text-align: left;
-    margin: auto;
+.card .button-group button:last-child {
+    margin-right: 0;
 }
 
-/* Estilo para o botão expandir */
-#botao_expandir {
-    display: flex;
-    justify-content: right;
-    width: 30px;
+.btnConfirmar {
+    background-color: #28a745;
 }
 
-/* Estilo para os inputs */
-.input-name, .rua, .bairro, .dia-pagamento, .status-pagamento {
-    width: 100%;
-    margin-top: 20px;
-    height: 40px;
+.btnConfirmar:hover {
+    background-color: #218838;
 }
 
-/* Estilo para elementos sem borda */
-.sem_borda {
-    border-left-color: transparent;
-    border-right-color: transparent;
-    padding-bottom: 50px;
+.btnComprovante {
+    background-color: #17a2b8;
 }
 
-/* Estilo para o grupo de botões */
-.button-group {
-    display: flex;
-    gap: 10px; /* Adiciona espaço entre os botões */
-    margin-bottom: 20px; /* Adiciona um pouco de margem inferior para separar do restante do conteúdo */
+.btnComprovante:hover {
+    background-color: #117a8b;
 }
 
-.btnBack, .button-group button[type="button"] {
-    display: inline-block; /* Certifique-se de que ambos os botões se comportem como elementos inline-block */
-}
-
-/* Estilo para o botão de voltar */
-.btnBack {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: lightskyblue;
-    padding: 16px 20px;
-    color: #0a0113;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Estilo para o botão de filtros */
-.btnFilters {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: #6610f2;
-    padding: 16px 20px;
-    color: white;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Estilo para o botão de editar */
-.btnEditar {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
+.btnMapa {
     background-color: #ffc107;
-    padding: 16px 20px;
-    color: #0a0113;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: black;
 }
 
-/* Estilo para o botão de excluir */
-.btnExcluir {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: #dc3545;
-    padding: 16px 20px;
-    color: white;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.btnMapa:hover {
+    background-color: #e0a800;
 }
 
-/* Estilo para o botão de ocultar */
-.btnOcultar {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: lightskyblue;
-    padding: 16px 20px;
-    color: #0a0113;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Estilo para o botão de expandir */
-.btnExpandir {
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    background-color: lightskyblue;
-    padding: 16px 20px;
-    color: #0a0113;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Estilo para o modal */
 .modal {
     position: fixed;
     top: 0;
@@ -198,11 +188,9 @@ table, td, th {
 }
 
 .mapaModal {
-    background-color: white;
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
+    border-radius: 8px;
     position: relative;
 }
 
@@ -210,14 +198,8 @@ table, td, th {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 5px 10px;
+    background: none;
     border: none;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 5px;
+    font-size: 20px;
     cursor: pointer;
-}
-
-.mapaModal button:hover {
-    background-color: #c82333;
 }

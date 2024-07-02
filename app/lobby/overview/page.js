@@ -277,13 +277,11 @@ export default function Overview() {
                                         {!editando && (
                                             <>
                                                 <tr>
-                                                    <td colSpan="2"><button className="btnEditar" onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colSpan="2"><button className="btnExcluir" onClick={() => deleteClient(cliente.id)}>Excluir</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colSpan="2"><button className="btnOcultar" onClick={() => setExpandir(null)}>Ocultar</button></td>
+                                                    <td colSpan="2">
+                                                        <button className="btnEditar" onClick={() => { setEditando(true); setClienteEditando(cliente.id); }}>Editar</button>
+                                                        <button className="btnExcluir" onClick={() => deleteClient(cliente.id)}>Excluir</button>
+                                                        <button className="btnOcultar" onClick={() => setExpandir(null)}>Ocultar</button>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td className="sem_borda" colSpan="2"></td>
